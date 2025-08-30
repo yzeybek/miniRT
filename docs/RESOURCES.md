@@ -1,6 +1,6 @@
 1. [If need to start from (other episodes an be watchable if more needed) scratch](https://youtu.be/fNk_zzaMoSs?feature=shared)
 
-2. [Mathematical Background of RT](Ray Tracing Tutorial: http://www.youtube.com/playlist?list=PLAqGIYgEAxrUO6ODA0pnLkM2UOijerFPv)
+2. [Mathematical Background of RT](http://www.youtube.com/playlist?list=PLAqGIYgEAxrUO6ODA0pnLkM2UOijerFPv)
 
 3. [Quick recap of RT process](https://youtu.be/wzZJzyX0UkI?feature=shared)
 
