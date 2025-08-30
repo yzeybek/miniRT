@@ -10,3 +10,5 @@
 
 6. [Books that highly recommended.](https://raytracing.github.io/)
 
+7. [Worth to read for better understanment](https://en.m.wikipedia.org/wiki/Phong_reflection_model)
+
