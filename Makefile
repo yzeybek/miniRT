@@ -24,6 +24,7 @@ LIBMLX_REPO = https://github.com/42paris/minilibx-linux.git
 LIBMLX_DIR = ./libs/minilibx-linux
 LIBMLX = $(LIBMLX_DIR)/libmlx_Linux.a
 
+
 SRCS_DIR = srcs
 SRCS = main.c
 
