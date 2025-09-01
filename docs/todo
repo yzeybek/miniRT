@@ -1,4 +1,8 @@
  - [x] Put some resources
+ - [x] rewrite the libmem according provider approach
+ - [x] fix libft with libmem and directories
+ - [x] put down the libmlx makable way
+ - [x] Create Makefiles in same way with almost same on minishell
+ - [ ] test the libmem with new mem_free
  - [ ] write down vector library
- - [ ] rewrite the libmem according provider approach
- - [ ] Create Makefiles in same way with almost same on minishell
+ - [ ] create main.c with basic window rendering

@@ -1,0 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yzeybek <yzeybek@student.42.com.tr>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/08 13:51:40 by yzeybek           #+#    #+#             */
+/*   Updated: 2025/09/01 19:43:47 by yzeybek          ###   ########.tr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_mem.h"
+
+void	*ft_memset(void *b, int c, size_t len)
+{
+	size_t					i;
+	unsigned char *const	ptr = (unsigned char *)b;
+
+	i = 0;
+	while (i < len)
+	{
+		ptr[i] = c;
+		i++;
+	}
+	return (b);
+}
