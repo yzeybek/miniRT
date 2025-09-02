@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libvec.h                                           :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yzeybek <yzeybek@student.42.com.tr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/01 20:41:40 by yzeybek           #+#    #+#             */
-/*   Updated: 2025/09/02 23:11:11 by yzeybek          ###   ########.tr       */
+/*   Created: 2025/09/02 19:46:27 by yzeybek           #+#    #+#             */
+/*   Updated: 2025/09/02 21:58:09 by yzeybek          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBVEC_H
-# define LIBVEC_H
+#include <unistd.h>
+#define FT_STR
+#include "libft.h"
+#include "mrt_error.h"
 
-# include "vec_ariths.h"
-# include "vec_consts.h"
-# include "vec_norms.h"
-# include "vec_oprs.h"
-# include "vec_prods.h"
-# include "vec_structs.h"
+int	check_arg(char *arg)
+{
+	char	*dot;
 
-#endif // LIBVEC_H
+	dot = ft_strrchr(arg, '.');
+	if (!dot || dot == arg || *(dot - 1) == '/' || ft_strncmp(dot, ".rt", 4))
+		return (1);
+	return (0);
+}
+
+int	put_err(char *msg)
+{
+	return (
+		write(STDERR_FILENO, "Error\n", 6)
+		+ write(STDERR_FILENO, msg, ft_strlen(msg))
+	);
+}

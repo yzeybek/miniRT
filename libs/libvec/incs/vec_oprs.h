@@ -6,14 +6,14 @@
 /*   By: yzeybek <yzeybek@student.42.com.tr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 17:07:30 by yzeybek           #+#    #+#             */
-/*   Updated: 2025/09/02 17:29:02 by yzeybek          ###   ########.tr       */
+/*   Updated: 2025/09/02 23:10:46 by yzeybek          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VEC_OPRS_H
 # define VEC_OPRS_H
 
-# include "vec_strcts.h"
+# include "vec_structs.h"
 
 t_vector	vec_add(const t_vector *a, const t_vector *b);
 t_vector	vec_sub(const t_vector *a, const t_vector *b);

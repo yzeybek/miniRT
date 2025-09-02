@@ -1,23 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libvec.h                                           :+:      :+:    :+:   */
+/*   mrt_view.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yzeybek <yzeybek@student.42.com.tr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/01 20:41:40 by yzeybek           #+#    #+#             */
-/*   Updated: 2025/09/02 23:11:11 by yzeybek          ###   ########.tr       */
+/*   Created: 2025/09/02 23:25:00 by yzeybek           #+#    #+#             */
+/*   Updated: 2025/09/03 00:23:26 by yzeybek          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBVEC_H
-# define LIBVEC_H
+#ifndef MRT_VIEW_H
+# define MRT_VIEW_H
 
-# include "vec_ariths.h"
-# include "vec_consts.h"
-# include "vec_norms.h"
-# include "vec_oprs.h"
-# include "vec_prods.h"
-# include "vec_structs.h"
+# define VIEW_WIDTH 1920
+# define VIEW_HEIGHT 1080
+# define VIEW_NAME "miniRT"
 
-#endif // LIBVEC_H
+typedef struct s_view_data
+{
+	void	*mlx;
+	void	*win;
+	void	*img;
+	char	*img_addr;
+	int		img_len;
+	int		img_bpp;
+	int		img_end;
+
+}	t_view_data;
+
+int	view_init(t_view_data *vd);
+int	view_setup(t_view_data *vd);
+
+#endif // MRT_VIEW_H

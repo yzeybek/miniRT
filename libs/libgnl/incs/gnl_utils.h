@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vec_arith.h                                        :+:      :+:    :+:   */
+/*   gnl_utils.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yzeybek <yzeybek@student.42.com.tr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/02 17:29:05 by yzeybek           #+#    #+#             */
-/*   Updated: 2025/09/02 17:34:53 by yzeybek          ###   ########.tr       */
+/*   Created: 2025/07/05 21:02:50 by yzeybek           #+#    #+#             */
+/*   Updated: 2025/08/02 16:22:55 by yzeybek          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VEC_ARITH_H
-# define VEC_ARITH_H
+#ifndef GNL_UTILS_H
+# define GNL_UTILS_H
 
-# include "vec_strcts.h"
+# include <stddef.h>
 
-t_vector	vec_scale(const t_vector *v, double s);
-t_vector	vec_divd(const t_vector *v, double s);
-t_vector	vec_neg(const t_vector *v);
+char	*gnl_find_newline(char *str);
+char	*gnl_strjoin(char *s1, char *s2);
+size_t	gnl_strlen(char *str);
+size_t	gnl_strlcpy(char *dst, char *src, size_t dstsize);
+char	*gnl_strdup(char *str);
 
-#endif // VEC_ARITH_H
+#endif // GNL_UTILS_H

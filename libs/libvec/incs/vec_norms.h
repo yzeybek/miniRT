@@ -6,14 +6,14 @@
 /*   By: yzeybek <yzeybek@student.42.com.tr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 17:07:55 by yzeybek           #+#    #+#             */
-/*   Updated: 2025/09/02 17:09:44 by yzeybek          ###   ########.tr       */
+/*   Updated: 2025/09/02 23:10:40 by yzeybek          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VEC_NORMS_H
 # define VEC_NORMS_H
 
-# include "vec_strcts.h"
+# include "vec_structs.h"
 
 double		vec_length2(const t_vector *v);
 double		vec_length(const t_vector *v);

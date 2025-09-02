@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vec_arith.c                                        :+:      :+:    :+:   */
+/*   libgnl.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yzeybek <yzeybek@student.42.com.tr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/02 17:33:39 by yzeybek           #+#    #+#             */
-/*   Updated: 2025/09/02 17:39:38 by yzeybek          ###   ########.tr       */
+/*   Created: 2024/11/02 20:20:54 by yzeybek           #+#    #+#             */
+/*   Updated: 2025/09/02 18:00:00 by yzeybek          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vec_arith.h"
-#include "vec_consts.h"
+#ifndef LIBGNL_H
+# define LIBGNL_H
 
-t_vector	vec_scale(const t_vector *v, double s)
-{
-	return (vec_new(v->x * s, v->y * s, v->z * s));
-}
+char	*gnl_one(int fd);
+char	*gnl_all(int fd);
 
-t_vector	vec_divd(const t_vector *v, double s)
-{
-	return (vec_new(v->x / s, v->y / s, v->z / s));
-}
-
-t_vector	vec_neg(const t_vector *v)
-{
-	return (vec_new(-v->x, -v->y, -v->z));
-}
+#endif // LIBGNL_H

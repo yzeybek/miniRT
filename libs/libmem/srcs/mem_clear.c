@@ -6,7 +6,7 @@
 /*   By: yzeybek <yzeybek@student.42.com.tr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 18:17:32 by yzeybek           #+#    #+#             */
-/*   Updated: 2025/09/01 18:49:16 by yzeybek          ###   ########.tr       */
+/*   Updated: 2025/09/02 22:39:54 by yzeybek          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	mem_free(void *ptr)
 		head = &node;
 		return ;
 	}
+	
 	node = (*head);
 	while (node && node->next)
 	{

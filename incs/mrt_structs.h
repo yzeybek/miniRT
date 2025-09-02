@@ -1,23 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libvec.h                                           :+:      :+:    :+:   */
+/*   mrt_structs.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yzeybek <yzeybek@student.42.com.tr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/01 20:41:40 by yzeybek           #+#    #+#             */
-/*   Updated: 2025/09/02 23:11:11 by yzeybek          ###   ########.tr       */
+/*   Created: 2025/09/02 23:08:33 by yzeybek           #+#    #+#             */
+/*   Updated: 2025/09/03 00:30:41 by yzeybek          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBVEC_H
-# define LIBVEC_H
+#ifndef MRT_STRUCTS_H
+# define MRT_STRUCTS_H
 
-# include "vec_ariths.h"
-# include "vec_consts.h"
-# include "vec_norms.h"
-# include "vec_oprs.h"
-# include "vec_prods.h"
-# include "vec_structs.h"
-
-#endif // LIBVEC_H
+#endif // MRT_STRUCTS_H

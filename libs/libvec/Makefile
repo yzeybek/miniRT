@@ -1,31 +1,33 @@
+NAME = libvec.a
+
 CC = cc
 RM = rm -rf
 AR = ar rcs
 MKDIR = mkdir -p
 
-IFLAGS = -I. -I ./incs
+INC_DIRS = ./ ./incs
+IFLAGS = $(addprefix -I, $(INC_DIRS))
 CFLAGS = -Wall -Werror -Wextra
 
-VPATH = srcs
-SRCS = vec_arith.c vec_consts.c vec_norms.c vec_oprs.c vec_prods.c
+SRCS_DIR = srcs
+SRCS = vec_ariths.c vec_consts.c vec_norms.c vec_oprs.c vec_prods.c
+VPATH = $(SRCS_DIR) $(addprefix $(SRCS_DIR)/, )
 
 OBJS_DIR = build
 OBJS = $(SRCS:%.c=$(OBJS_DIR)/%.o)
-
-NAME = libvec.a
 
 $(OBJS_DIR)/%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o  $@ $(IFLAGS)
 
 all: dir $(NAME)
 
+$(NAME): $(OBJS)
+	$(AR) $(NAME) $(OBJS)
+
 dir:
 	@if [ ! -d $(OBJS_DIR) ]; then \
 		$(MKDIR) $(OBJS_DIR); \
 	fi
-
-$(NAME): $(OBJS)
-	$(AR) $(NAME) $(OBJS)
 
 clean:
 	$(RM) $(OBJS_DIR)

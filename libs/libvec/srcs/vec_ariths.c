@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libvec.h                                           :+:      :+:    :+:   */
+/*   vec_arith.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yzeybek <yzeybek@student.42.com.tr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/01 20:41:40 by yzeybek           #+#    #+#             */
-/*   Updated: 2025/09/02 23:11:11 by yzeybek          ###   ########.tr       */
+/*   Created: 2025/09/02 17:33:39 by yzeybek           #+#    #+#             */
+/*   Updated: 2025/09/02 23:10:55 by yzeybek          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBVEC_H
-# define LIBVEC_H
+#include "vec_ariths.h"
+#include "vec_consts.h"
 
-# include "vec_ariths.h"
-# include "vec_consts.h"
-# include "vec_norms.h"
-# include "vec_oprs.h"
-# include "vec_prods.h"
-# include "vec_structs.h"
+t_vector	vec_scale(const t_vector *v, double s)
+{
+	return (vec_new(v->x * s, v->y * s, v->z * s));
+}
 
-#endif // LIBVEC_H
+t_vector	vec_divd(const t_vector *v, double s)
+{
+	return (vec_new(v->x / s, v->y / s, v->z / s));
+}
+
+t_vector	vec_neg(const t_vector *v)
+{
+	return (vec_new(-v->x, -v->y, -v->z));
+}
