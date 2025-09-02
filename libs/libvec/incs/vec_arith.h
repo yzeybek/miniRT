@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libmem.h                                           :+:      :+:    :+:   */
+/*   vec_arith.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yzeybek <yzeybek@student.42.com.tr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/01 18:08:46 by yzeybek           #+#    #+#             */
-/*   Updated: 2025/09/01 23:02:31 by yzeybek          ###   ########.tr       */
+/*   Created: 2025/09/02 17:29:05 by yzeybek           #+#    #+#             */
+/*   Updated: 2025/09/02 17:34:53 by yzeybek          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBMEM_H
-# define LIBMEM_H
+#ifndef VEC_ARITH_H
+# define VEC_ARITH_H
 
-# include <stddef.h>
+# include "vec_strcts.h"
 
-void	*mem_malloc(size_t size);
-void	*mem_calloc(size_t nmemb, size_t size);
-void	*mem_realloc(void *ptr, size_t size);
+t_vector	vec_scale(const t_vector *v, double s);
+t_vector	vec_divd(const t_vector *v, double s);
+t_vector	vec_neg(const t_vector *v);
 
-void	*mem_absorb(void *ptr);
-void	mem_free(void *ptr);
-void	mem_clear(void);
-void	mem_exit(int status);
-
-#endif // LIBMEM_H
+#endif // VEC_ARITH_H

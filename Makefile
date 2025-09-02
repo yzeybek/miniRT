@@ -1,4 +1,4 @@
-NAME = libft.a
+NAME = miniRT
 
 CC = cc
 RM = rm -rf
@@ -11,11 +11,16 @@ MAKEFLAGS += --no-print-directory
 
 CFLAGS = -Wall -Werror -Wextra
 
-INC_DIRS = ./ ./incs ./libs/libmem ./libs/libft ./libs/minilibx-linux
+INC_DIRS = ./ ./incs ./libs/libvec ./libs/libmem ./libs/libft ./libs/minilibx-linux
 IFLAGS = $(addprefix -I, $(INC_DIRS))
+
+LFLAGS = -lm
 
 OBJS_DIR = build
 OBJS = $(SRCS:%.c=$(OBJS_DIR)/%.o)
+
+LIBVEC_DIR = ./libs/libvec
+LIBVEC = $(LIBVEC_DIR)/libvec.a
 
 LIBFT_DIR = ./libs/libft
 LIBFT = $(LIBFT_DIR)/libft.a
@@ -23,7 +28,6 @@ LIBFT = $(LIBFT_DIR)/libft.a
 LIBMLX_REPO = https://github.com/42paris/minilibx-linux.git
 LIBMLX_DIR = ./libs/minilibx-linux
 LIBMLX = $(LIBMLX_DIR)/libmlx_Linux.a
-
 
 SRCS_DIR = srcs
 SRCS = main.c
@@ -33,7 +37,10 @@ VPATH = $(SRCS_DIR) $(addprefix $(SRCS_DIR)/, )
 $(OBJS_DIR)/%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o  $@ $(IFLAGS)
 
-all: $(LIBMLX) $(LIBFT) dir $(NAME)
+all: $(LIBVEC) $(LIBMLX) $(LIBFT) dir $(NAME)
+
+$(LIBVEC):
+	$(MAKE) $(LIBVEC_DIR)
 
 $(LIBFT):
 	$(MAKE) $(LIBFT_DIR)
@@ -49,16 +56,18 @@ dir:
 		$(MKDIR) $(OBJS_DIR); \
 	fi
 
-$(NAME): $(OBJS)
-	$(AR) $(NAME) $(OBJS) $(LIBMLX) $(LIBFT)
+$(NAME): $(OBJS) $(LIBMLX) $(LIBFT) $(LIBMEM) $(LIBVEC)
+	$(CC) $(CFLAGS) $^ -o $@ $(LFLAGS)
 
 clean:
 	$(RM) $(OBJS_DIR)
+	$(MAKE) $(LIBVEC_DIR) clean
 	$(MAKE) $(LIBFT_DIR) clean
 	$(MAKE) $(LIBMLX_DIR) clean
 
 fclean: clean
 	$(RM) $(NAME)
+	$(MAKE) $(LIBVEC_DIR) fclean
 	$(MAKE) $(LIBFT_DIR) fclean
 
 re: fclean all

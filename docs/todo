@@ -3,6 +3,7 @@
  - [x] fix libft with libmem and directories
  - [x] put down the libmlx makable way
  - [x] Create Makefiles in same way with almost same on minishell
+ - [x] write down vector library
+ - [ ] test the vector library with newing some stuff
  - [ ] test the libmem with new mem_free
- - [ ] write down vector library
  - [ ] create main.c with basic window rendering

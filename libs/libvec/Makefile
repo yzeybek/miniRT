@@ -7,7 +7,7 @@ IFLAGS = -I. -I ./incs
 CFLAGS = -Wall -Werror -Wextra
 
 VPATH = srcs
-SRCS =
+SRCS = vec_arith.c vec_consts.c vec_norms.c vec_oprs.c vec_prods.c
 
 OBJS_DIR = build
 OBJS = $(SRCS:%.c=$(OBJS_DIR)/%.o)

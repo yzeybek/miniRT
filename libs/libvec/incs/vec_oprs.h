@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libmem.h                                           :+:      :+:    :+:   */
+/*   vec_oprs.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yzeybek <yzeybek@student.42.com.tr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/01 18:08:46 by yzeybek           #+#    #+#             */
-/*   Updated: 2025/09/01 23:02:31 by yzeybek          ###   ########.tr       */
+/*   Created: 2025/09/02 17:07:30 by yzeybek           #+#    #+#             */
+/*   Updated: 2025/09/02 17:29:02 by yzeybek          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBMEM_H
-# define LIBMEM_H
+#ifndef VEC_OPRS_H
+# define VEC_OPRS_H
 
-# include <stddef.h>
+# include "vec_strcts.h"
 
-void	*mem_malloc(size_t size);
-void	*mem_calloc(size_t nmemb, size_t size);
-void	*mem_realloc(void *ptr, size_t size);
+t_vector	vec_add(const t_vector *a, const t_vector *b);
+t_vector	vec_sub(const t_vector *a, const t_vector *b);
+t_vector	vec_mul(const t_vector *a, const t_vector *b);
+t_vector	vec_div(const t_vector *a, const t_vector *b);
 
-void	*mem_absorb(void *ptr);
-void	mem_free(void *ptr);
-void	mem_clear(void);
-void	mem_exit(int status);
-
-#endif // LIBMEM_H
+#endif // VEC_OPRS_H

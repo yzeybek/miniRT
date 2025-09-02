@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libmem.h                                           :+:      :+:    :+:   */
+/*   vec_prods.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yzeybek <yzeybek@student.42.com.tr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/01 18:08:46 by yzeybek           #+#    #+#             */
-/*   Updated: 2025/09/01 23:02:31 by yzeybek          ###   ########.tr       */
+/*   Created: 2025/09/02 17:36:01 by yzeybek           #+#    #+#             */
+/*   Updated: 2025/09/02 17:38:00 by yzeybek          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBMEM_H
-# define LIBMEM_H
+#include "vec_prods.h"
+#include "vec_consts.h"
 
-# include <stddef.h>
+double	vec_dot(const t_vector *a, const t_vector *b)
+{
+	return (a->x * b->x + a->y * b->y + a->z * b->z);
+}
 
-void	*mem_malloc(size_t size);
-void	*mem_calloc(size_t nmemb, size_t size);
-void	*mem_realloc(void *ptr, size_t size);
-
-void	*mem_absorb(void *ptr);
-void	mem_free(void *ptr);
-void	mem_clear(void);
-void	mem_exit(int status);
-
-#endif // LIBMEM_H
+t_vector	vec_cross(const t_vector *a, const t_vector *b)
+{
+	return (vec_new(
+			a->y * b->z - a->z * b->y,
+			a->z * b->x - a->x * b->z,
+			a->x * b->y - a->y * b->x
+		));
+}

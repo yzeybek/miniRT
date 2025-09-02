@@ -46,6 +46,7 @@ dir:
 	fi
 
 $(NAME): $(OBJS)
+	$(AR) $(NAME) $(OBJS) $(LIBMEM)
 
 clean:
 	$(RM) $(OBJS_DIR)

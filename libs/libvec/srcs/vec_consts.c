@@ -1,27 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libmem.h                                           :+:      :+:    :+:   */
+/*   vec_consts.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yzeybek <yzeybek@student.42.com.tr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/01 18:08:46 by yzeybek           #+#    #+#             */
-/*   Updated: 2025/09/01 23:02:31 by yzeybek          ###   ########.tr       */
+/*   Created: 2025/09/02 17:13:25 by yzeybek           #+#    #+#             */
+/*   Updated: 2025/09/02 17:39:21 by yzeybek          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBMEM_H
-# define LIBMEM_H
+#include "vec_consts.h"
 
-# include <stddef.h>
+t_vector	vec_new(double x, double y, double z)
+{
+	t_vector	v;
 
-void	*mem_malloc(size_t size);
-void	*mem_calloc(size_t nmemb, size_t size);
-void	*mem_realloc(void *ptr, size_t size);
+	v.x = x;
+	v.y = y;
+	v.z = z;
+	return (v);
+}
 
-void	*mem_absorb(void *ptr);
-void	mem_free(void *ptr);
-void	mem_clear(void);
-void	mem_exit(int status);
+t_vector	vec_from_double(double d)
+{
+	return (vec_new(d, d, d));
+}
 
-#endif // LIBMEM_H
+t_vector	vec_zero(void)
+{
+	return (vec_new(0.0, 0.0, 0.0));
+}
+
+t_vector	vec_copy(const t_vector *v)
+{
+	return (vec_new(v->x, v->y, v->z));
+}
