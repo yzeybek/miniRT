@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mrt_view.h                                         :+:      :+:    :+:   */
+/*   parse_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yzeybek <yzeybek@student.42.com.tr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/02 23:25:00 by yzeybek           #+#    #+#             */
-/*   Updated: 2025/09/05 05:19:30 by yzeybek          ###   ########.tr       */
+/*   Created: 2025/09/05 09:25:22 by yzeybek           #+#    #+#             */
+/*   Updated: 2025/09/05 09:31:08 by yzeybek          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MRT_VIEW_H
-# define MRT_VIEW_H
+#define FT_INT
+#define FT_STR
+#include "libft.h"
+#include "libvec.h"
+#include "mrt_structs.h"
 
-# define VIEW_WIDTH 1920
-# define VIEW_HEIGHT 1080
-# define VIEW_NAME "miniRT"
-
-# define KEY_ESC 65307
-
-typedef struct s_view_data
+double	parse_double(char *str)
 {
-	void	*mlx;
-	void	*win;
-	void	*img;
-	char	*img_addr;
-	int		img_len;
-	int		img_bpp;
-	int		img_end;
+	double	ret;
+	return (ret);
+}
 
-}	t_view_data;
+t_vector	parse_vector(char *str)
+{
+	t_vector	ret;
+	return (ret);
+}
 
-int	view_init(t_view_data *vd);
-int	view_setup(t_view_data *vd);
-
-#endif // MRT_VIEW_H
+t_color		parse_color(char *str)
+{
+	t_color	ret;
+	return (ret);
+}

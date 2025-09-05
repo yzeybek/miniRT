@@ -1,37 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mrt_view.h                                         :+:      :+:    :+:   */
+/*   ft_isnone.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yzeybek <yzeybek@student.42.com.tr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/02 23:25:00 by yzeybek           #+#    #+#             */
-/*   Updated: 2025/09/05 05:19:30 by yzeybek          ###   ########.tr       */
+/*   Created: 2025/09/05 09:10:19 by yzeybek           #+#    #+#             */
+/*   Updated: 2025/09/05 09:11:18 by yzeybek          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MRT_VIEW_H
-# define MRT_VIEW_H
+#include "ft_is.h"
 
-# define VIEW_WIDTH 1920
-# define VIEW_HEIGHT 1080
-# define VIEW_NAME "miniRT"
-
-# define KEY_ESC 65307
-
-typedef struct s_view_data
+int	ft_isnone(int c)
 {
-	void	*mlx;
-	void	*win;
-	void	*img;
-	char	*img_addr;
-	int		img_len;
-	int		img_bpp;
-	int		img_end;
-
-}	t_view_data;
-
-int	view_init(t_view_data *vd);
-int	view_setup(t_view_data *vd);
-
-#endif // MRT_VIEW_H
+	return (c == ' ' || c == '\t');
+}

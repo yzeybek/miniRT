@@ -6,7 +6,7 @@
 /*   By: yzeybek <yzeybek@student.42.com.tr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 23:22:53 by yzeybek           #+#    #+#             */
-/*   Updated: 2025/09/02 23:58:46 by yzeybek          ###   ########.tr       */
+/*   Updated: 2025/09/05 05:19:24 by yzeybek          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	on_exit(t_view_data *vd)
 
 int	on_click(int key, t_view_data *vd)
 {
-	if (key == 65307)
+	if (KEY_ESC == key)
 		return (on_exit(vd));
 	return (0);
 }
