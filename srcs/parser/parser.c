@@ -6,7 +6,7 @@
 /*   By: yzeybek <yzeybek@student.42.com.tr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 00:44:39 by yzeybek           #+#    #+#             */
-/*   Updated: 2025/09/05 09:45:41 by yzeybek          ###   ########.tr       */
+/*   Updated: 2025/09/05 10:20:38 by yzeybek          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 #define FT_IS
 #define FT_STR
 #include "libft.h"
-#include "mrt_structs.h"
+#include "mrt_error.h"
+#include "mrt_parser.h"
 
 static int	is_empty(char *content)
 {
@@ -52,14 +53,14 @@ static int	parse_line(char *line, t_scene *scene)
 
 	while (line && ft_isnone(*line))
 		line++;
-	if (*line == 'A' && ft_isnone(*(line + 1)) && !ids[0])
-		ids[0] += parse_ambient(line + 1, scene);
-	else if (*line == 'C' && ft_isnone(*(line + 1)) && !ids[1])
-		ids[1] += parse_camera(line + 1, scene);
-	else if (*line == 'L' && ft_isnone(*(line + 1)) && !ids[2])
-		ids[2] += parse_light(line + 1, scene);
+	if (*line == 'A' && ft_isnone(*(line + 1)))
+		ids[0] += parse_ambient(line + 1, scene, ids[0]);
+	else if (*line == 'C' && ft_isnone(*(line + 1)))
+		ids[1] += parse_camera(line + 1, scene, ids[1]);
+	else if (*line == 'L' && ft_isnone(*(line + 1)))
+		ids[2] += parse_light(line + 1, scene, ids[2]);
 	else if (*line == 'l' && ft_isnone(*(line + 1)))
-		ids[3] += parse_light(line + 1, scene);
+		ids[3] += parse_light(line + 1, scene, 0);
 	else if (*line == 'p' && *(line + 1) == 'l' && ft_isnone(*(line + 2)))
 		ids[4] += parse_plane(line + 2, scene);
 	else if (*line == 's' && *(line + 1) == 'p' && ft_isnone(*(line + 2)))
@@ -69,7 +70,7 @@ static int	parse_line(char *line, t_scene *scene)
 	else if (*line == 'c' && *(line + 1) == 'n' && ft_isnone(*(line + 2)))
 		ids[7] += parse_cone(line + 2, scene);
 	else
-		return (1);
+		return (put_err(ERR_PARSE_ID));
 	if (has_odd(ids, ID_COUNT))
 		return (1);
 	return (0);

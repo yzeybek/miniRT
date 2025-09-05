@@ -6,7 +6,7 @@
 /*   By: yzeybek <yzeybek@student.42.com.tr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 22:46:12 by yzeybek           #+#    #+#             */
-/*   Updated: 2025/09/05 00:44:33 by yzeybek          ###   ########.tr       */
+/*   Updated: 2025/09/05 10:21:01 by yzeybek          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "mrt_view.h"
 #include "mrt_error.h"
 #include "mrt_parser.h"
-#include "mrt_structs.h"
 
 static int	miniRT_main(int argc, char **argv)
 {

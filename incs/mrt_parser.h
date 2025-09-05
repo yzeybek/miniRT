@@ -6,7 +6,7 @@
 /*   By: yzeybek <yzeybek@student.42.com.tr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 00:43:29 by yzeybek           #+#    #+#             */
-/*   Updated: 2025/09/05 00:44:17 by yzeybek          ###   ########.tr       */
+/*   Updated: 2025/09/05 10:18:19 by yzeybek          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,19 @@
 
 # include "mrt_structs.h"
 
-t_scene	*parse_scene(char *file);
+t_scene		*parse_scene(char *file);
+
+int			parse_ambient(char *str, t_scene *scene, int count);
+int			parse_camera(char *str, t_scene *scene, int count);
+int			parse_light(char *str, t_scene *scene, int count);
+
+int			parse_plane(char *str, t_scene *scene);
+int			parse_sphere(char *str, t_scene *scene);
+int			parse_cylinder(char *str, t_scene *scene);
+int			parse_cone(char *str, t_scene *scene);
+
+double		parse_double(char *str);
+t_vector	parse_vector(char *str);
+t_color		parse_color(char *str);
 
 #endif

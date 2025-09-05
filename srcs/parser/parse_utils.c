@@ -6,7 +6,7 @@
 /*   By: yzeybek <yzeybek@student.42.com.tr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 09:25:22 by yzeybek           #+#    #+#             */
-/*   Updated: 2025/09/05 09:31:08 by yzeybek          ###   ########.tr       */
+/*   Updated: 2025/09/05 10:20:33 by yzeybek          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define FT_STR
 #include "libft.h"
 #include "libvec.h"
-#include "mrt_structs.h"
+#include "mrt_parser.h"
 
 double	parse_double(char *str)
 {
