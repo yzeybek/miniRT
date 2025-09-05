@@ -6,7 +6,7 @@
 /*   By: yzeybek <yzeybek@student.42.com.tr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 00:43:29 by yzeybek           #+#    #+#             */
-/*   Updated: 2025/09/05 10:18:19 by yzeybek          ###   ########.tr       */
+/*   Updated: 2025/09/05 13:53:33 by yzeybek          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@ int			parse_sphere(char *str, t_scene *scene);
 int			parse_cylinder(char *str, t_scene *scene);
 int			parse_cone(char *str, t_scene *scene);
 
-double		parse_double(char *str);
-t_vector	parse_vector(char *str);
-t_color		parse_color(char *str);
+int			check_numeric(char *str);
+int			parse_double(char *str, double *ret);
+int			parse_color(char *str, t_color *ret);
+int			parse_vector(char *str, t_vector *ret);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: yzeybek <yzeybek@student.42.com.tr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 00:44:39 by yzeybek           #+#    #+#             */
-/*   Updated: 2025/09/05 10:20:38 by yzeybek          ###   ########.tr       */
+/*   Updated: 2025/09/05 13:45:39 by yzeybek          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static int	has_odd(int *nums, int len)
 	i = -1;
 	while (++i < len)
 		if (nums[i] % 2)
-			break;
+			break ;
 	if (i != len)
 		return (1);
 	return (0);
