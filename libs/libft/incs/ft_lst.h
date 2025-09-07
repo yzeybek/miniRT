@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_lst.h                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yzeybek <yzeybek@student.42.com.tr>        +#+  +:+       +#+        */
+/*                                                         :::      ::::::::  */
+/*   ft_lst.h                                            :+:      :+:    :+:  */
+/*                                                     +:+ +:+         +:+    */
+/*   By: yzeybek <yzeybek@student.42.com.tr>         +#+  +:+       +#+       */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 19:32:53 by yzeybek           #+#    #+#             */
-/*   Updated: 2025/09/01 19:38:20 by yzeybek          ###   ########.tr       */
+/*   Updated: 2025/09/08 02:06:18 by yzeybek          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,5 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-
 
 #endif // FT_LST_H

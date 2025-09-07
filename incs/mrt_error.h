@@ -6,7 +6,7 @@
 /*   By: yzeybek <yzeybek@student.42.com.tr>         +#+  +:+       +#+       */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 19:43:30 by yzeybek           #+#    #+#             */
-/*   Updated: 2025/09/07 06:25:09 by yzeybek          ###   ########.tr       */
+/*   Updated: 2025/09/08 00:04:12 by yzeybek          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,10 @@
 # define ERR_PARSE_LIGHT_RATIO "Couldn't Parse Light Ratio\n"
 # define ERR_PARSE_LIGHT_COLOR "Couldn't Parse Light Color\n"
 # define ERR_PARSE_LIGHT_UNKNOWN "Unknown Format On Light\n"
+# define ERR_PARSE_PL_POS "Couldn't Parse Plane Position\n"
+# define ERR_PARSE_PL_DIR "Couldn't Parse Plane Direction\n"
+# define ERR_PARSE_PL_COLOR "Couldn't Parse Plane Color\n"
+# define ERR_PARSE_PL_UNKNOWN "Unkown Format On Plane\n"
 
 int	put_err(char *msg);
 int	check_arg(char *arg);

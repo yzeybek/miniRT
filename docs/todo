@@ -4,6 +4,7 @@
  - [x] put down the libmlx makable way
  - [x] Create Makefiles in same way with almost same on minishell
  - [x] write down vector library
- - [ ] test the vector library with newing some stuff
+ - [x] test the vector library with newing some stuff
+ - [x] create main.c with basic window rendering
+ - [ ] finish parser with handling objects
  - [ ] test the libmem with new mem_free
- - [ ] create main.c with basic window rendering

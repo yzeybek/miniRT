@@ -6,7 +6,7 @@
 /*   By: yzeybek <yzeybek@student.42.com.tr>         +#+  +:+       +#+       */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 23:08:33 by yzeybek           #+#    #+#             */
-/*   Updated: 2025/09/07 06:03:49 by yzeybek          ###   ########.tr       */
+/*   Updated: 2025/09/07 22:28:44 by yzeybek          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,10 +95,10 @@ typedef struct s_shape
 {
 	union u_obj
 	{
-		t_sphere	sp;
-		t_plane		pl;
-		t_cylinder	cy;
-		t_cone		cn;
+		t_sphere	*sp;
+		t_plane		*pl;
+		t_cylinder	*cy;
+		t_cone		*cn;
 	} obj;
 	t_obj_type	obj_type;
 	t_color		color;

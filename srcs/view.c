@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   view.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yzeybek <yzeybek@student.42.com.tr>        +#+  +:+       +#+        */
+/*                                                         :::      ::::::::  */
+/*   view.c                                              :+:      :+:    :+:  */
+/*                                                     +:+ +:+         +:+    */
+/*   By: yzeybek <yzeybek@student.42.com.tr>         +#+  +:+       +#+       */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 23:22:53 by yzeybek           #+#    #+#             */
-/*   Updated: 2025/09/05 05:19:24 by yzeybek          ###   ########.tr       */
+/*   Updated: 2025/09/07 22:20:15 by yzeybek          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ int	view_init(t_view_data *vd)
 	if (!vd->img)
 		return (mlx_destroy_window(vd->img, vd->win), 1);
 	vd->img_addr = mlx_get_data_addr(vd->img, &vd->img_bpp, &vd->img_len,
-					&vd->img_end);
+			&vd->img_end);
 	if (!vd->img_addr)
 		return (mlx_destroy_image(vd->mlx, vd->img),
-				mlx_destroy_window(vd->mlx, vd->win), 1);
+			mlx_destroy_window(vd->mlx, vd->win), 1);
 	return (0);
 }
 

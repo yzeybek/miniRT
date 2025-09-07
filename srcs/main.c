@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yzeybek <yzeybek@student.42.com.tr>        +#+  +:+       +#+        */
+/*                                                         :::      ::::::::  */
+/*   main.c                                              :+:      :+:    :+:  */
+/*                                                     +:+ +:+         +:+    */
+/*   By: yzeybek <yzeybek@student.42.com.tr>         +#+  +:+       +#+       */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 22:46:12 by yzeybek           #+#    #+#             */
-/*   Updated: 2025/09/05 10:21:01 by yzeybek          ###   ########.tr       */
+/*   Updated: 2025/09/07 22:19:49 by yzeybek          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 #include "mrt_error.h"
 #include "mrt_parser.h"
 
-static int	miniRT_main(int argc, char **argv)
+static int	minirt_main(int argc, char **argv)
 {
 	t_view_data *const	vd = &(t_view_data){0};
-	t_scene 			*scene;
+	t_scene				*scene;
 
 	if (argc != 2)
 		return (put_err(ERR_ARG_COUNT));
@@ -39,7 +39,7 @@ int	main(int argc, char **argv)
 {
 	int	res;
 
-	res = miniRT_main(argc, argv);
+	res = minirt_main(argc, argv);
 	mem_clear();
 	return (res);
 }

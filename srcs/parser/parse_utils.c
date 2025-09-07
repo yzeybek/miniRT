@@ -6,7 +6,7 @@
 /*   By: yzeybek <yzeybek@student.42.com.tr>         +#+  +:+       +#+       */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 09:25:22 by yzeybek           #+#    #+#             */
-/*   Updated: 2025/09/07 06:32:59 by yzeybek          ###   ########.tr       */
+/*   Updated: 2025/09/08 01:44:25 by yzeybek          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,14 @@
 #define FT_STR
 #include "libft.h"
 #include "mrt_parser.h"
+
+void	pass_chars(char **str, char *chars)
+{
+	if (!str || !*str || !chars)
+		return ;
+	while (**str && ft_strchr(chars, **str))
+		(*str)++;
+}
 
 int	check_numeric(char *str)
 {
@@ -41,9 +49,9 @@ int	parse_double(char *str, double *ret)
 	*ret = 0.0;
 	frac = 0.0;
 	div = 1.0;
-	sign = (-1 * ((*str) == '-')) + ((*str) != '+');
+	sign = (-1 * ((*str) == '-')) + (((*str) == '+') || ft_isdigit(*str));
 	str += *str == '+' || *str == '-';
-	if (!*str || !ft_isdigit(*str))
+	if (!ft_isdigit(*str))
 		return (1);
 	str--;
 	while (++str && *str && ft_isdigit(*str))
@@ -58,21 +66,19 @@ int	parse_double(char *str, double *ret)
 			div *= 10.0;
 		}
 	}
-	return (*ret = sign * (*ret + frac / div));
+	return (*ret = sign * (*ret + frac / div), 0);
 }
 
 int	parse_vector(char *str, t_vector *ret)
 {
 	if (parse_double(str, &ret->x))
 		return (1);
-	while (ft_isdigit(*str) || *str == '-' || *str == '+')
-		str++;
+	pass_chars(&str, "0123456789-+.");
 	if (*str++ != ',')
 		return (1);
 	if (parse_double(str, &ret->y))
 		return (1);
-	while (ft_isdigit(*str) || *str == '-' || *str == '+')
-		str++;
+	pass_chars(&str, "0123456789-+.");
 	if (*str++ != ',')
 		return (1);
 	if (parse_double(str, &ret->z))
@@ -83,14 +89,12 @@ int	parse_vector(char *str, t_vector *ret)
 int	parse_color(char *str, t_color *ret)
 {
 	ret->r = ft_atoi(str);
-	while (ft_isdigit(*str))
-		str++;
+	pass_chars(&str, "0123456789");
 	if (*str != ',')
 		return (1);
 	str++;
 	ret->g = ft_atoi(str);
-	while (ft_isdigit(*str))
-		str++;
+	pass_chars(&str, "0123456789");
 	if (*str != ',')
 		return (1);
 	str++;
