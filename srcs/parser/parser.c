@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yzeybek <yzeybek@student.42.com.tr>        +#+  +:+       +#+        */
+/*                                                         :::      ::::::::  */
+/*   parser.c                                            :+:      :+:    :+:  */
+/*                                                     +:+ +:+         +:+    */
+/*   By: yzeybek <yzeybek@student.42.com.tr>         +#+  +:+       +#+       */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 00:44:39 by yzeybek           #+#    #+#             */
-/*   Updated: 2025/09/05 13:45:39 by yzeybek          ###   ########.tr       */
+/*   Updated: 2025/09/07 06:30:44 by yzeybek          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 static int	is_empty(char *content)
 {
 	if (!content || !*content)
-		return (NULL);
+		return (1);
 	while (*content)
 	{
 		if (!ft_isspace(*content))
@@ -58,9 +58,9 @@ static int	parse_line(char *line, t_scene *scene)
 	else if (*line == 'C' && ft_isnone(*(line + 1)))
 		ids[1] += parse_camera(line + 1, scene, ids[1]);
 	else if (*line == 'L' && ft_isnone(*(line + 1)))
-		ids[2] += parse_light(line + 1, scene, ids[2]);
+		ids[2] += parse_light(line + 1, scene, ids[2], 1);
 	else if (*line == 'l' && ft_isnone(*(line + 1)))
-		ids[3] += parse_light(line + 1, scene, 0);
+		ids[3] += parse_light(line + 1, scene, ids[3], 0);
 	else if (*line == 'p' && *(line + 1) == 'l' && ft_isnone(*(line + 2)))
 		ids[4] += parse_plane(line + 2, scene);
 	else if (*line == 's' && *(line + 1) == 'p' && ft_isnone(*(line + 2)))

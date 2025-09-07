@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   parse_utils.c                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yzeybek <yzeybek@student.42.com.tr>        +#+  +:+       +#+        */
+/*                                                         :::      ::::::::  */
+/*   parse_utils.c                                       :+:      :+:    :+:  */
+/*                                                     +:+ +:+         +:+    */
+/*   By: yzeybek <yzeybek@student.42.com.tr>         +#+  +:+       +#+       */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 09:25:22 by yzeybek           #+#    #+#             */
-/*   Updated: 2025/09/05 13:53:12 by yzeybek          ###   ########.tr       */
+/*   Updated: 2025/09/07 06:32:59 by yzeybek          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	parse_double(char *str, double *ret)
 	*ret = 0.0;
 	frac = 0.0;
 	div = 1.0;
-	sign = -1 * *str == '-' + *str != '-';
+	sign = (-1 * ((*str) == '-')) + ((*str) != '+');
 	str += *str == '+' || *str == '-';
 	if (!*str || !ft_isdigit(*str))
 		return (1);
@@ -63,6 +63,20 @@ int	parse_double(char *str, double *ret)
 
 int	parse_vector(char *str, t_vector *ret)
 {
+	if (parse_double(str, &ret->x))
+		return (1);
+	while (ft_isdigit(*str) || *str == '-' || *str == '+')
+		str++;
+	if (*str++ != ',')
+		return (1);
+	if (parse_double(str, &ret->y))
+		return (1);
+	while (ft_isdigit(*str) || *str == '-' || *str == '+')
+		str++;
+	if (*str++ != ',')
+		return (1);
+	if (parse_double(str, &ret->z))
+		return (1);
 	return (0);
 }
 

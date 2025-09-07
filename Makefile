@@ -11,10 +11,10 @@ GIT = git clone
 
 MAKEFLAGS += --no-print-directory
 
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g
 
-INC_DIRS = ./ ./incs ./libs/libvec ./libs/libmem ./libs/libgnl ./libs/libft \
-		   ./libs/libft/incs ./libs/minilibx-linux
+INC_DIRS = ./ ./incs ./libs/libvec ./libs/libvec/incs ./libs/libmem ./libs/libgnl \
+		   ./libs/libft ./libs/libft/incs ./libs/minilibx-linux
 IFLAGS = $(addprefix -I, $(INC_DIRS))
 
 LFLAGS = -lm -lX11 -lXext
