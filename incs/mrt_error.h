@@ -6,7 +6,7 @@
 /*   By: yzeybek <yzeybek@student.42.com.tr>         +#+  +:+       +#+       */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 19:43:30 by yzeybek           #+#    #+#             */
-/*   Updated: 2025/09/08 00:04:12 by yzeybek          ###   ########.tr       */
+/*   Updated: 2025/09/10 23:57:55 by yzeybek          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,22 @@
 # define ERR_PARSE_PL_DIR "Couldn't Parse Plane Direction\n"
 # define ERR_PARSE_PL_COLOR "Couldn't Parse Plane Color\n"
 # define ERR_PARSE_PL_UNKNOWN "Unkown Format On Plane\n"
+# define ERR_PARSE_SP_POS "Couldn't Parse Sphere Position\n"
+# define ERR_PARSE_SP_DIA "Couldn't Parse Sphere Diameter\n"
+# define ERR_PARSE_SP_COLOR "Couldn't Parse Sphere color\n"
+# define ERR_PARSE_SP_UNKNOWN "Unknown Format On Sphere\n"
+# define ERR_PARSE_CY_POS "Couldn't Parse Cylinder Position\n"
+# define ERR_PARSE_CY_DIR "Couldn't Parse Cylinder Direction\n"
+# define ERR_PARSE_CY_DIA "Couldn't Parse Cylinder Diameter\n"
+# define ERR_PARSE_CY_HEIGHT "Couldn't Parse Cylinder Height\n"
+# define ERR_PARSE_CY_COLOR "Couldn't Parse Cylinder Color\n"
+# define ERR_PARSE_CY_UNKNOWN "Unknown Format On Cylinder\n"
+# define ERR_PARSE_CN_POS "Couldn't Parse Cone Position\n"
+# define ERR_PARSE_CN_DIR "Couldn't Parse Cone Direction\n"
+# define ERR_PARSE_CN_DIA "Couldn't Parse Cone Diameter\n"
+# define ERR_PARSE_CN_HEIGHT "Couldn't Parse Cone Height\n"
+# define ERR_PARSE_CN_COLOR "Couldn't Parse Cone Color\n"
+# define ERR_PARSE_CN_UNKNOWN "Unknown Format On Cone\n"
 
 int	put_err(char *msg);
 int	check_arg(char *arg);

@@ -6,7 +6,7 @@
 /*   By: yzeybek <yzeybek@student.42.com.tr>         +#+  +:+       +#+       */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 23:08:33 by yzeybek           #+#    #+#             */
-/*   Updated: 2025/09/07 22:28:44 by yzeybek          ###   ########.tr       */
+/*   Updated: 2025/09/10 21:23:40 by yzeybek          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ typedef struct s_plane
 typedef struct s_cylinder
 {
 	t_vector	dir;
-	double		rad;
+	double		dia;
 	double		height;
 
 }	t_cylinder;
@@ -86,7 +86,7 @@ typedef struct s_cylinder
 typedef struct s_cone
 {
 	t_vector	dir;
-	double		rad;
+	double		dia;
 	double		height;
 
 }	t_cone;
