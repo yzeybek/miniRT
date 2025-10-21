@@ -1,6 +1,6 @@
 NAME = miniRT
 
-TEST_ARG = ./tests/test.rt
+TEST_ARG = ./scenes/subject.rt
 
 CC = cc
 RM = rm -rf
