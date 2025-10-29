@@ -6,7 +6,7 @@
 /*   By: yzeybek <yzeybek@student.42istanbul.com.tr>   +#+  +:+       +#+     */
 /*                                                   +#+#+#+#+#+   +#+        */
 /*   Created: 2025/09/02 19:43:30 by yzeybek              #+#    #+#          */
-/*   Updated: 2025/10/21 12:48:00 by yzeybek             ###   ########.fr    */
+/*   Updated: 2025/10/28 16:43:19 by yzeybek             ###   ########.fr    */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,28 @@
 # define ERR_ARG_NAME "Invalid Argument Name\n"
 # define ERR_VIEW_INIT "Couldn't Initialized View\n"
 # define ERR_VIEW_SETUP "Couldn't Setup View\n"
+# define ERR_PARSE_OPEN "Couldn't Open The File\n"
+# define ERR_PARSE_EMPTY "File Content Is Empty\n"
 # define ERR_PARSE_ID "Found Unknown Identifier\n"
 # define ERR_PARSE_COUNT_AMB "More Than One Ambient Detected\n"
 # define ERR_PARSE_COUNT_CAM "More Than One Camera Detected\n"
 # define ERR_PARSE_COUNT_LIGHT "More Than One Light Detected\n"
 # define ERR_PARSE_NON_NUM "Non-numeric Character Detected\n"
+# define ERR_PARSE_AMB_MISS "Ambient Lightning Is Missing\n"
 # define ERR_PARSE_AMB_RATIO "Couldn't Parse Ambient Ratio\n"
 # define ERR_PARSE_AMB_COLOR "Couldn't Parse Ambient Color\n"
 # define ERR_PARSE_AMB_UNKNOWN "Unknown Format On Ambident\n"
+# define ERR_PARSE_CAM_MISS "Camera Is Missing\n"
 # define ERR_PARSE_CAM_POS "Couldn't Parse Camera Position\n"
 # define ERR_PARSE_CAM_DIR "Couldn't Parse Camera Direction\n"
 # define ERR_PARSE_CAM_FOV "Couldn't Parse Camera FOV\n"
 # define ERR_PARSE_CAM_UNKNOWN "Unknown Format On Camera\n"
+# define ERR_PARSE_LIGHT_MISS "Lightning Is Missing\n"
 # define ERR_PARSE_LIGHT_POS "Couldn't Parse Light Position\n"
 # define ERR_PARSE_LIGHT_RATIO "Couldn't Parse Light Ratio\n"
 # define ERR_PARSE_LIGHT_COLOR "Couldn't Parse Light Color\n"
 # define ERR_PARSE_LIGHT_UNKNOWN "Unknown Format On Light\n"
+# define ERR_PARSE_SHP_MISS "Any Kind Of Shape Is Missing\n"
 # define ERR_PARSE_PL_POS "Couldn't Parse Plane Position\n"
 # define ERR_PARSE_PL_DIR "Couldn't Parse Plane Direction\n"
 # define ERR_PARSE_PL_COLOR "Couldn't Parse Plane Color\n"

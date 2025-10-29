@@ -6,7 +6,7 @@
 /*   By: yzeybek <yzeybek@student.42istanbul.com.tr>   +#+  +:+       +#+     */
 /*                                                   +#+#+#+#+#+   +#+        */
 /*   Created: 2025/09/02 23:08:33 by yzeybek              #+#    #+#          */
-/*   Updated: 2025/10/21 14:25:46 by yzeybek             ###   ########.fr    */
+/*   Updated: 2025/10/29 01:56:40 by yzeybek             ###   ########.fr    */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ typedef struct s_ambient
 
 typedef struct s_light
 {
+	t_byte		is_cap;
 	t_point		pos;
 	t_color		color;
 	double		ratio;

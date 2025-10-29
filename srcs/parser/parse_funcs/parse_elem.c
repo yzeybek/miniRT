@@ -6,7 +6,7 @@
 /*   By: yzeybek <yzeybek@student.42istanbul.com.tr>   +#+  +:+       +#+     */
 /*                                                   +#+#+#+#+#+   +#+        */
 /*   Created: 2025/09/05 09:36:07 by yzeybek              #+#    #+#          */
-/*   Updated: 2025/10/21 12:47:52 by yzeybek             ###   ########.fr    */
+/*   Updated: 2025/10/29 01:57:13 by yzeybek             ###   ########.fr    */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	parse_ambient(char *str, t_scene *scene, int count)
 int	parse_camera(char *str, t_scene *scene, int count)
 {
 	if (count >= 2)
-		return (put_err(ERR_PARSE_COUNT_AMB), 1);
+		return (put_err(ERR_PARSE_COUNT_CAM), 1);
 	if (check_numeric(str))
 		return (put_err(ERR_PARSE_NON_NUM), 1);
 	pass_chars(&str, " \t");
@@ -61,7 +61,7 @@ int	parse_camera(char *str, t_scene *scene, int count)
 int	parse_light(char *str, t_scene *scene, int count, t_byte cap)
 {
 	if (count >= 2 && cap)
-		return (put_err(ERR_PARSE_COUNT_AMB), 1);
+		return (put_err(ERR_PARSE_COUNT_LIGHT), 1);
 	if (check_numeric(str))
 		return (put_err(ERR_PARSE_NON_NUM), 1);
 	scene->lights = mem_realloc(scene->lights, sizeof(t_light) * (count / 2
@@ -80,5 +80,6 @@ int	parse_light(char *str, t_scene *scene, int count, t_byte cap)
 	pass_chars(&str, "0123456789, \t");
 	if (*str)
 		return (put_err(ERR_PARSE_LIGHT_UNKNOWN), 1);
+	scene->lights[count / 2].is_cap = cap;
 	return (2);
 }

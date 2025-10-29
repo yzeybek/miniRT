@@ -6,7 +6,7 @@
 /*   By: yzeybek <yzeybek@student.42istanbul.com.tr>   +#+  +:+       +#+     */
 /*                                                   +#+#+#+#+#+   +#+        */
 /*   Created: 2025/09/05 00:44:39 by yzeybek              #+#    #+#          */
-/*   Updated: 2025/10/21 14:26:26 by yzeybek             ###   ########.fr    */
+/*   Updated: 2025/10/28 16:44:30 by yzeybek             ###   ########.fr    */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,29 @@ static int	is_empty(char *content)
 	return (0);
 }
 
-static int	has_odd(int *nums, int len)
+static int	has_odd(int *ids)
 {
 	int	i;
 
 	i = -1;
-	while (++i < len)
-		if (nums[i] % 2)
+	while (++i < ID_COUNT)
+		if (ids[i] % 2)
 			break ;
-	if (i != len)
+	if (i != ID_COUNT)
 		return (1);
+	return (0);
+}
+
+static int	is_missing(int *ids)
+{
+	if (!ids[0])
+		return (put_err(ERR_PARSE_AMB_MISS));
+	else if (!ids[1])
+		return (put_err(ERR_PARSE_CAM_MISS));
+	else if (!ids[2] && !ids[3])
+		return (put_err(ERR_PARSE_LIGHT_MISS));
+	else if (!ids[4] && !ids[5] && !ids[6] && !ids[7])
+		return put_err(ERR_PARSE_SHP_MISS);
 	return (0);
 }
 
@@ -69,7 +82,7 @@ static int	parse_line(char *line, t_scene *scene)
 		scene->ids[7] += parse_cone(line + 2, scene, scene->ids + 4);
 	else
 		return (put_err(ERR_PARSE_ID));
-	if (has_odd(scene->ids, ID_COUNT))
+	if (has_odd(scene->ids))
 		return (1);
 	return (0);
 }
@@ -84,10 +97,10 @@ t_scene	*parse_scene(char *file)
 	ret = mem_calloc(sizeof(t_scene), 1);
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
-		return (NULL);
+		return (put_err(ERR_PARSE_OPEN), NULL);
 	content = gnl_all(fd);
 	if (is_empty(content))
-		return (NULL);
+		return (put_err(ERR_PARSE_EMPTY), NULL);
 	lines = ft_strsplit(content, '\n');
 	while (lines && *lines)
 	{
@@ -97,5 +110,7 @@ t_scene	*parse_scene(char *file)
 			return (NULL);
 		lines++;
 	}
+	if (is_missing(ret->ids))
+		return (NULL);
 	return (ret);
 }

@@ -7,7 +7,8 @@
  - [x] test the vector library with newing some stuff
  - [x] create main.c with basic window rendering
  - [x] finish parser with handling objects
+ - [x] make ids reachable from somewhere
+ - [ ] display debug output on DEBUG
  - [ ] test the libmem with new mem_free
  - [ ] test the parser with extreme error saturations
- - [ ] make ids reachable from somewhere
  - [ ] create a valid map creater from perl

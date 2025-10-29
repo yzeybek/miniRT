@@ -11,7 +11,7 @@ GIT = git clone
 
 MAKEFLAGS += --no-print-directory
 
-CFLAGS = -Wall -Werror -Wextra -g
+CFLAGS = -Wall -Werror -Wextra
 
 INC_DIRS = ./ ./incs ./libs/libvec ./libs/libvec/incs ./libs/libmem ./libs/libgnl \
 		   ./libs/libft ./libs/libft/incs ./libs/minilibx-linux
@@ -83,8 +83,12 @@ fclean: clean
 
 re: fclean all
 
-run:
+run: re
 	./$(NAME) $(TEST_ARG)
+
+debug: CFLAGS += -g -DDEBUG=1
+debug: re
+	code --reuse-window --folder-uri . --command workbench.action.debug.start
 
 norm:
 	norminette
