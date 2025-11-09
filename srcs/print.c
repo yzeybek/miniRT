@@ -6,7 +6,7 @@
 /*   By: yzeybek <yzeybek@student.42istanbul.com.tr>   +#+  +:+       +#+     */
 /*                                                   +#+#+#+#+#+   +#+        */
 /*   Created: 2025/10/28 23:52:57 by yzeybek              #+#    #+#          */
-/*   Updated: 2025/10/29 03:12:53 by yzeybek             ###   ########.fr    */
+/*   Updated: 2025/11/09 13:52:25 by yzeybek             ###   ########.fr    */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,24 @@ static void	print_shapes(t_scene *scene)
 
 	i = -1;
 	while (++i < count)
+	{
 		if (scene->shapes[i].obj_type == OBJ_SP)
-		printf(
-			"Sphere\n"
-			);
+			printf(
+				"Sphere\n"
+				);
+		else if (scene->shapes[i].obj_type == OBJ_PL)
+			printf(
+				"Plane\n"
+				);
+		else if (scene->shapes[i].obj_type == OBJ_CY)
+			printf(
+				"Cylinder\n"
+				);
+		else if (scene->shapes[i].obj_type == OBJ_CN)
+			printf(
+				"Cone\n"
+				);
+	}
 }
 
 static void	print_lights(t_scene *scene)

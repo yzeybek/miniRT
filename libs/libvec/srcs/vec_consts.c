@@ -6,7 +6,7 @@
 /*   By: yzeybek <yzeybek@student.42istanbul.com.tr>   +#+  +:+       +#+     */
 /*                                                   +#+#+#+#+#+   +#+        */
 /*   Created: 2025/09/02 17:13:25 by yzeybek              #+#    #+#          */
-/*   Updated: 2025/10/21 12:53:04 by yzeybek             ###   ########.fr    */
+/*   Updated: 2025/11/08 17:33:59 by yzeybek             ###   ########.fr    */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_vector	vec_zero(void)
 	return (vec_new(0.0, 0.0, 0.0));
 }
 
-t_vector	vec_copy(const t_vector *v)
+t_vector	vec_copy(const t_vector v)
 {
-	return (vec_new(v->x, v->y, v->z));
+	return (vec_new(v.x, v.y, v.z));
 }

@@ -39,9 +39,9 @@ LIBMLX_DIR = ./libs/minilibx-linux
 LIBMLX = $(LIBMLX_DIR)/libmlx_Linux.a
 
 SRCS_DIR = srcs
-SRCS = main.c error.c view.c parser.c parse_utils.c parse_elem.c parse_objs.c
+SRCS = main.c error.c view.c parser.c parse_utils.c parse_elem.c parse_objs.c render.c render_utils.c intersect.c shader.c
 
-VPATH = $(SRCS_DIR) $(addprefix $(SRCS_DIR)/, parser parser/parse_funcs)
+VPATH = $(SRCS_DIR) $(addprefix $(SRCS_DIR)/, parser parser/parse_funcs render)
 
 $(OBJS_DIR)/%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o  $@ $(IFLAGS)

@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                           :::      ::::::: */
-/*   vec_norms.h                                           :+:      :+:    :+ */
+/*   intersect.c                                           :+:      :+:    :+ */
 /*                                                       +:+ +:+         +:+  */
 /*   By: yzeybek <yzeybek@student.42istanbul.com.tr>   +#+  +:+       +#+     */
 /*                                                   +#+#+#+#+#+   +#+        */
-/*   Created: 2025/09/02 17:07:55 by yzeybek              #+#    #+#          */
-/*   Updated: 2025/11/08 17:39:10 by yzeybek             ###   ########.fr    */
+/*   Created: 2025/11/09 14:46:41 by yzeybek              #+#    #+#          */
+/*   Updated: 2025/11/09 15:00:03 by yzeybek             ###   ########.fr    */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VEC_NORMS_H
-# define VEC_NORMS_H
+#include "mrt_render.h"
 
-# include "vec_structs.h"
+int	plane_intersect(t_ray ray, t_shape plane, double *t)
+{
 
-double		vec_length2(const t_vector v);
-double		vec_length(const t_vector v);
-double		vec_normalize(t_vector *v);
-t_vector	vec_normalized(const t_vector v);
+}
 
-#endif // VEC_NORMS_H
+int sphere_intersect(t_ray ray, t_shape sphere, double *t)
+{
+
+}
+
+int cylinder_intersect(t_ray ray, t_shape cylinder, double *t)
+{
+
+}
+
+int	cone_intersect(t_ray ray, t_shape cone, double *t)
+{
+
+}

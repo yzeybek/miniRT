@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                           :::      ::::::: */
-/*   vec_norms.h                                           :+:      :+:    :+ */
+/*   shader.c                                              :+:      :+:    :+ */
 /*                                                       +:+ +:+         +:+  */
 /*   By: yzeybek <yzeybek@student.42istanbul.com.tr>   +#+  +:+       +#+     */
 /*                                                   +#+#+#+#+#+   +#+        */
-/*   Created: 2025/09/02 17:07:55 by yzeybek              #+#    #+#          */
-/*   Updated: 2025/11/08 17:39:10 by yzeybek             ###   ########.fr    */
+/*   Created: 2025/11/09 14:50:52 by yzeybek              #+#    #+#          */
+/*   Updated: 2025/11/09 14:52:30 by yzeybek             ###   ########.fr    */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VEC_NORMS_H
-# define VEC_NORMS_H
+#include "mrt_render.h"
 
-# include "vec_structs.h"
+t_color	miss_shader()
+{
 
-double		vec_length2(const t_vector v);
-double		vec_length(const t_vector v);
-double		vec_normalize(t_vector *v);
-t_vector	vec_normalized(const t_vector v);
+}
 
-#endif // VEC_NORMS_H
+t_color	hit_shader(t_scene *scene, t_ray ray, t_hit closest)
+{
+	
+}

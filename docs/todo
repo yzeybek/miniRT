@@ -8,7 +8,12 @@
  - [x] create main.c with basic window rendering
  - [x] finish parser with handling objects
  - [x] make ids reachable from somewhere
- - [ ] display debug output on DEBUG
+ - [x] display debug output on DEBUG
+ - [ ] complete shapes printing on DEBUG
+ - [ ] understand the ray generation with maths
+ - [ ] write down the intersections
+ - [ ] write down the shaders
+ - [ ] checkout the structs works without references
  - [ ] test the libmem with new mem_free
  - [ ] test the parser with extreme error saturations
  - [ ] create a valid map creater from perl
