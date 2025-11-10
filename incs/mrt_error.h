@@ -6,7 +6,7 @@
 /*   By: yzeybek <yzeybek@student.42istanbul.com.tr>   +#+  +:+       +#+     */
 /*                                                   +#+#+#+#+#+   +#+        */
 /*   Created: 2025/09/02 19:43:30 by yzeybek              #+#    #+#          */
-/*   Updated: 2025/10/28 16:43:19 by yzeybek             ###   ########.fr    */
+/*   Updated: 2025/11/10 00:24:36 by yzeybek             ###   ########.fr    */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # define ERR_ARG_COUNT "Invalid Argument Count\n"
 # define ERR_ARG_NAME "Invalid Argument Name\n"
 # define ERR_VIEW_INIT "Couldn't Initialized View\n"
+# define ERR_RENDER "Problem Occured During Render\n"
 # define ERR_VIEW_SETUP "Couldn't Setup View\n"
 # define ERR_PARSE_OPEN "Couldn't Open The File\n"
 # define ERR_PARSE_EMPTY "File Content Is Empty\n"

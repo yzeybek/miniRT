@@ -39,7 +39,7 @@ LIBMLX_DIR = ./libs/minilibx-linux
 LIBMLX = $(LIBMLX_DIR)/libmlx_Linux.a
 
 SRCS_DIR = srcs
-SRCS = main.c error.c view.c parser.c parse_utils.c parse_elem.c parse_objs.c render.c render_utils.c intersect.c shader.c
+SRCS = main.c error.c view.c parser.c parse_utils.c parse_elem.c parse_objs.c render.c render_utils.c intersect.c shader.c print.c
 
 VPATH = $(SRCS_DIR) $(addprefix $(SRCS_DIR)/, parser parser/parse_funcs render)
 
@@ -88,7 +88,6 @@ run: re
 
 debug: CFLAGS += -g -DDEBUG=1
 debug: re
-	code --reuse-window --folder-uri . --command workbench.action.debug.start
 
 norm:
 	norminette

@@ -6,7 +6,7 @@
 /*   By: yzeybek <yzeybek@student.42istanbul.com.tr>   +#+  +:+       +#+     */
 /*                                                   +#+#+#+#+#+   +#+        */
 /*   Created: 2025/10/28 15:34:27 by yzeybek              #+#    #+#          */
-/*   Updated: 2025/11/09 14:59:40 by yzeybek             ###   ########.fr    */
+/*   Updated: 2025/11/10 00:30:42 by yzeybek             ###   ########.fr    */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ static int	check_hit(t_ray ray, t_shape shape, double *t)
 
 static t_color	trace_ray(t_scene *scene, t_ray ray)
 {
-	t_hit	closest;
-	double	t;
-	int		i;
+	t_hit		closest;
+	double		t;
+	int			i;
 	const int	count = scene->ids[4] / 2 + scene->ids[5] / 2
 		+ scene->ids[6] / 2 + scene->ids[7] / 2;
 
@@ -62,7 +62,7 @@ static void	calc_cam_basis(t_scene *scene)
 				scene->camera.world_up));
 	scene->camera.up = vec_normalized(vec_cross(scene->camera.right,
 				scene->camera.dir));
-	scene->camera.aspect = VIEW_WIDTH / VIEW_HEIGHT;
+	scene->camera.aspect = (double)VIEW_WIDTH / (double)VIEW_HEIGHT;
 	scene->camera.half_w = tan((scene->camera.fov * M_PI / 180.0) / 2.0);
 	scene->camera.half_h = scene->camera.half_w / scene->camera.aspect;
 }
@@ -81,13 +81,13 @@ int	render_scene(t_scene *scene, t_view_data *vd)
 		y = -1;
 		while (++y < VIEW_HEIGHT)
 		{
-			ray.dir = vec_normalized(vec_add(
-						scene->camera.dir,
-						vec_add(
-							vec_scale(scene->camera.right, ((x / VIEW_WIDTH)
-									* 2.0 - 1.0) * scene->camera.half_w),
-							vec_scale(scene->camera.up, (1.0 - (y / VIEW_HEIGHT)
-									* 2.0) * scene->camera.half_h)
+			ray.dir = vec_normalized(vec_add(scene->camera.dir, vec_add(
+							vec_scale(scene->camera.right,
+								((x / (double)VIEW_WIDTH) * 2.0 - 1.0)
+								* scene->camera.half_w),
+							vec_scale(scene->camera.up,
+								(1.0 - (y / (double)VIEW_HEIGHT) * 2.0)
+								* scene->camera.half_h)
 							)
 						));
 			put_pixel(vd, x, y, trace_ray(scene, ray).color);

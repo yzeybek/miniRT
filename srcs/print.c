@@ -6,7 +6,7 @@
 /*   By: yzeybek <yzeybek@student.42istanbul.com.tr>   +#+  +:+       +#+     */
 /*                                                   +#+#+#+#+#+   +#+        */
 /*   Created: 2025/10/28 23:52:57 by yzeybek              #+#    #+#          */
-/*   Updated: 2025/11/09 13:52:25 by yzeybek             ###   ########.fr    */
+/*   Updated: 2025/11/10 00:38:51 by yzeybek             ###   ########.fr    */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,4 +92,5 @@ void	print_scene(t_scene *scene)
 		scene->ambient.color.b, scene->ambient.ratio);
 	print_lights(scene);
 	print_shapes(scene);
+	printf(ANSI_RESET);
 }
