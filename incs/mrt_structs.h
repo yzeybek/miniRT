@@ -6,7 +6,7 @@
 /*   By: yzeybek <yzeybek@student.42istanbul.com.tr>   +#+  +:+       +#+     */
 /*                                                   +#+#+#+#+#+   +#+        */
 /*   Created: 2025/09/02 23:08:33 by yzeybek              #+#    #+#          */
-/*   Updated: 2025/11/09 14:34:56 by yzeybek             ###   ########.fr    */
+/*   Updated: 2025/11/11 12:07:55 by yzeybek             ###   ########.fr    */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,8 @@ typedef struct s_camera
 {
 	t_point		pos;
 	t_vector	dir;
-	t_vector	world_up;
 	t_vector	right;
 	t_vector	up;
-	double		aspect;
 	double		half_w;
 	double		half_h;
 	double		fov;

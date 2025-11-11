@@ -6,7 +6,7 @@
 /*   By: yzeybek <yzeybek@student.42istanbul.com.tr>   +#+  +:+       +#+     */
 /*                                                   +#+#+#+#+#+   +#+        */
 /*   Created: 2025/10/28 15:34:27 by yzeybek              #+#    #+#          */
-/*   Updated: 2025/11/10 00:30:42 by yzeybek             ###   ########.fr    */
+/*   Updated: 2025/11/11 12:27:45 by yzeybek             ###   ########.fr    */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,16 +55,19 @@ static t_color	trace_ray(t_scene *scene, t_ray ray)
 
 static void	calc_cam_basis(t_scene *scene)
 {
-	scene->camera.world_up = vec_new(0, 1, 0);
-	if (fabs(vec_dot(scene->camera.dir, scene->camera.world_up)) > 1.0 - 1e-4)
-		scene->camera.world_up = vec_new(0, 0, 1);
+	t_vector	world_up;
+	double		aspect;
+
+	world_up = vec_new(0, 1, 0);
+	if (fabs(vec_dot(scene->camera.dir, world_up)) > 1.0 - 1e-4)
+		world_up = vec_new(0, 0, 1);
 	scene->camera.right = vec_normalized(vec_cross(scene->camera.dir,
-				scene->camera.world_up));
+				world_up));
 	scene->camera.up = vec_normalized(vec_cross(scene->camera.right,
 				scene->camera.dir));
-	scene->camera.aspect = (double)VIEW_WIDTH / (double)VIEW_HEIGHT;
+	aspect = (double)VIEW_WIDTH / (double)VIEW_HEIGHT;
 	scene->camera.half_w = tan((scene->camera.fov * M_PI / 180.0) / 2.0);
-	scene->camera.half_h = scene->camera.half_w / scene->camera.aspect;
+	scene->camera.half_h = scene->camera.half_w / aspect;
 }
 
 int	render_scene(t_scene *scene, t_view_data *vd)
