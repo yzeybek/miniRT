@@ -6,7 +6,7 @@
 /*   By: yzeybek <yzeybek@student.42istanbul.com.tr>   +#+  +:+       +#+     */
 /*                                                   +#+#+#+#+#+   +#+        */
 /*   Created: 2025/10/28 15:34:27 by yzeybek              #+#    #+#          */
-/*   Updated: 2025/11/11 12:27:45 by yzeybek             ###   ########.fr    */
+/*   Updated: 2025/11/13 00:27:07 by yzeybek             ###   ########.fr    */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "mlx.h"
 #include "mrt_render.h"
 
-static int	check_hit(t_ray ray, t_shape shape, double *t)
+int	check_hit(t_ray ray, t_shape shape, double *t)
 {
 	if (shape.obj_type == OBJ_PL)
 		return (plane_intersect(ray, shape, t));
@@ -59,7 +59,7 @@ static void	calc_cam_basis(t_scene *scene)
 	double		aspect;
 
 	world_up = vec_new(0, 1, 0);
-	if (fabs(vec_dot(scene->camera.dir, world_up)) > 1.0 - 1e-4)
+	if (fabs(vec_dot(scene->camera.dir, world_up)) > 1.0 - EPSILON)
 		world_up = vec_new(0, 0, 1);
 	scene->camera.right = vec_normalized(vec_cross(scene->camera.dir,
 				world_up));
@@ -93,8 +93,8 @@ int	render_scene(t_scene *scene, t_view_data *vd)
 								* scene->camera.half_h)
 							)
 						));
-			put_pixel(vd, x, y, trace_ray(scene, ray).color);
+			put_color(vd, x, y, trace_ray(scene, ray).color);
 		}
 	}
-	return (mlx_put_image_to_window(vd->mlx, vd->win, vd->img_addr, 0, 0), 0);
+	return (mlx_put_image_to_window(vd->mlx, vd->win, vd->img, 0, 0), 0);
 }

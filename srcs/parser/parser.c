@@ -6,7 +6,7 @@
 /*   By: yzeybek <yzeybek@student.42istanbul.com.tr>   +#+  +:+       +#+     */
 /*                                                   +#+#+#+#+#+   +#+        */
 /*   Created: 2025/09/05 00:44:39 by yzeybek              #+#    #+#          */
-/*   Updated: 2025/11/09 13:53:55 by yzeybek             ###   ########.fr    */
+/*   Updated: 2025/11/12 23:16:08 by yzeybek             ###   ########.fr    */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static int	is_missing(int *ids)
 	else if (!ids[2] && !ids[3])
 		return (put_err(ERR_PARSE_LIGHT_MISS));
 	else if (!ids[4] && !ids[5] && !ids[6] && !ids[7])
-		return put_err(ERR_PARSE_SHP_MISS);
+		return (put_err(ERR_PARSE_SHP_MISS));
 	return (0);
 }
 

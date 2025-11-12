@@ -6,7 +6,7 @@
 /*   By: yzeybek <yzeybek@student.42istanbul.com.tr>   +#+  +:+       +#+     */
 /*                                                   +#+#+#+#+#+   +#+        */
 /*   Created: 2025/11/04 12:57:10 by yzeybek              #+#    #+#          */
-/*   Updated: 2025/11/11 15:01:09 by yzeybek             ###   ########.fr    */
+/*   Updated: 2025/11/13 00:39:40 by yzeybek             ###   ########.fr    */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,17 @@
 # include "mrt_view.h"
 # include "mrt_structs.h"
 
-int		render_scene(t_scene *scene, t_view_data *vd);
+# define EPSILON 1e-4
 
-void	put_pixel(t_view_data *vd, int x, int y, int color);
+int		render_scene(t_scene *scene, t_view_data *vd);
+int		check_hit(t_ray ray, t_shape shape, double *t);
+
+t_color	new_color(t_byte v);
+t_color	scale_color(t_color color, double s);
+t_color	mult_color(t_color a, t_color b);
+t_color	add_color(t_color a, t_color b);
+t_color	add_color(t_color a, t_color b);
+void	put_color(t_view_data *vd, int x, int y, int color);
 
 int		plane_intersect(t_ray ray, t_shape shape, double *t);
 int		sphere_intersect(t_ray ray, t_shape shape, double *t);

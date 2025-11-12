@@ -39,7 +39,7 @@ LIBMLX_DIR = ./libs/minilibx-linux
 LIBMLX = $(LIBMLX_DIR)/libmlx_Linux.a
 
 SRCS_DIR = srcs
-SRCS = main.c error.c view.c parser.c parse_utils.c parse_elem.c parse_objs.c render.c render_utils.c intersect.c shader.c print.c
+SRCS = main.c error.c view.c parser.c parse_utils.c parse_elem.c parse_objs.c render.c color.c intersect.c shader.c print.c
 
 VPATH = $(SRCS_DIR) $(addprefix $(SRCS_DIR)/, parser parser/parse_funcs render)
 
@@ -57,10 +57,10 @@ dir:
 	fi
 
 libs:
-	@$(MAKE) $(LIBMEM_DIR)
-	@$(MAKE) $(LIBGNL_DIR)
-	@$(MAKE) $(LIBFT_DIR)
-	@$(MAKE) $(LIBVEC_DIR)
+	@$(MAKE) $(LIBMEM_DIR) CFLAGS="$(CFLAGS)"
+	@$(MAKE) $(LIBGNL_DIR) CFLAGS="$(CFLAGS)"
+	@$(MAKE) $(LIBFT_DIR) CFLAGS="$(CFLAGS)"
+	@$(MAKE) $(LIBVEC_DIR) CFLAGS="$(CFLAGS)"
 	@if [ ! -d $(LIBMLX_DIR) ]; then \
 		$(GIT) $(LIBMLX_REPO) $(LIBMLX_DIR); \
 	fi; \

@@ -10,9 +10,15 @@
  - [x] make ids reachable from somewhere
  - [x] display debug output on DEBUG
  - [x] checkout the structs works without references
- - [ ] understand the ray generation with maths
- - [ ] write down the intersections
- - [ ] write down the shaders
+ - [x] understand the ray generation with maths
+ - [x] write down the intersections
+ - [x] write down the shaders
+ - [ ] fix wrong coloring on hit shader
+ - [ ] clean up the hit shader and divide into three
+ - [ ] create convention on color stuff
+ - [ ] light_count and shape_count idsx
+ - [ ] understand the lighting operations
+ - [ ] add cylinder and cone
  - [ ] complete shapes printing on DEBUG
  - [ ] test the libmem with new mem_free
  - [ ] test the parser with extreme error saturations
