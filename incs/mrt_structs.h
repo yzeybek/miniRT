@@ -6,7 +6,7 @@
 /*   By: yzeybek <yzeybek@student.42istanbul.com.tr>   +#+  +:+       +#+     */
 /*                                                   +#+#+#+#+#+   +#+        */
 /*   Created: 2025/09/02 23:08:33 by yzeybek              #+#    #+#          */
-/*   Updated: 2025/11/13 00:22:21 by yzeybek             ###   ########.fr    */
+/*   Updated: 2026/01/08 17:11:31 by yzeybek             ###   ########.fr    */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ typedef union u_color
 {
 	struct
 	{
-		t_byte	r;
-		t_byte	g;
 		t_byte	b;
+		t_byte	g;
+		t_byte	r;
 		t_byte	a;
 	};
 	int				color;

@@ -13,11 +13,11 @@
  - [x] understand the ray generation with maths
  - [x] write down the intersections
  - [x] write down the shaders
- - [ ] fix wrong coloring on hit shader
- - [ ] clean up the hit shader and divide into three
- - [ ] create convention on color stuff
- - [ ] light_count and shape_count idsx
- - [ ] understand the lighting operations
+ - [x] create convention on color stuff
+ - [x] clean up the hit shader and divide into three
+ - [x] fix wrong coloring on hit shader
+ - [x] understand the lighting operations
+ - [ ] light_count and shape_count ids
  - [ ] add cylinder and cone
  - [ ] complete shapes printing on DEBUG
  - [ ] test the libmem with new mem_free

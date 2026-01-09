@@ -12,3 +12,5 @@
 
 7. [Worth to read for better understanment](https://en.m.wikipedia.org/wiki/Phong_reflection_model)
 
+8. [Nice coding introduction to phong lighting](https://www.youtube.com/watch?v=LKXAIuCaKAQ)
+

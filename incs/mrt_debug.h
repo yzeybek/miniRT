@@ -6,7 +6,7 @@
 /*   By: yzeybek <yzeybek@student.42istanbul.com.tr>   +#+  +:+       +#+     */
 /*                                                   +#+#+#+#+#+   +#+        */
 /*   Created: 2025/10/28 23:50:27 by yzeybek              #+#    #+#          */
-/*   Updated: 2025/10/28 23:52:32 by yzeybek             ###   ########.fr    */
+/*   Updated: 2026/01/08 18:51:28 by yzeybek             ###   ########.fr    */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #  define DEBUG 0
 # endif
 
-#include "mrt_structs.h"
+# include "mrt_structs.h"
 
 void	print_scene(t_scene *scene);
 

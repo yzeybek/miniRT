@@ -6,7 +6,7 @@
 /*   By: yzeybek <yzeybek@student.42istanbul.com.tr>   +#+  +:+       +#+     */
 /*                                                   +#+#+#+#+#+   +#+        */
 /*   Created: 2025/11/09 14:50:52 by yzeybek              #+#    #+#          */
-/*   Updated: 2025/11/13 00:39:53 by yzeybek             ###   ########.fr    */
+/*   Updated: 2026/01/09 00:32:09 by yzeybek             ###   ########.fr    */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_color	miss_shader(void)
 	return (ret);
 }
 
-static t_vector	get_normal(t_shape shape, t_vector point)
+static t_vector	get_normal(t_shape shape, t_vector point, t_ray ray)
 {
 	t_vector	n;
 
@@ -30,6 +30,8 @@ static t_vector	get_normal(t_shape shape, t_vector point)
 		n = shape.obj.pl->dir;
 	else
 		n = vec_new(0, 1, 0);
+	if (vec_dot(n, ray.dir) > 0)
+		n = vec_scale(n, -1.0);
 	return (n);
 }
 
@@ -39,18 +41,17 @@ static int	is_shadowed(t_scene *scene, t_vector point, t_light light)
 		+ scene->ids[6] / 2 + scene->ids[7] / 2;
 	t_vector	to_light;
 	t_ray		shadow_ray;
-	double		dist;
 	double		t;
 	int			i;
 
 	to_light = vec_sub(light.pos, point);
-	dist = vec_length(to_light);
-	shadow_ray.pos = vec_add(point, vec_scale(vec_normalized(to_light),
-				EPSILON));
+	shadow_ray.pos = vec_add(point,
+			vec_scale(vec_normalized(to_light), EPSILON));
 	shadow_ray.dir = vec_normalized(to_light);
 	i = -1;
 	while (++i < count)
-		if (check_hit(shadow_ray, scene->shapes[i], &t) && t < dist)
+		if (check_hit(shadow_ray, scene->shapes[i], &t)
+			&& t < vec_length(to_light))
 			return (1);
 	return (0);
 }
@@ -58,27 +59,28 @@ static int	is_shadowed(t_scene *scene, t_vector point, t_light light)
 t_color	hit_shader(t_scene *scene, t_ray ray, t_hit closest)
 {
 	const t_vector	point = vec_add(ray.pos, vec_scale(ray.dir, closest.t));
-	const t_vector	normal = get_normal(closest.shape, point);
-	const int		light_count = scene->ids[2] / 2 + scene->ids[3] / 2;
+	const t_vector	normal = get_normal(closest.shape, point, ray);
 	t_vector		light_dir;
 	t_color			result;
 	int				i;
-	double			ndotl;
 
-	result = scale_color(scene->ambient.color, scene->ambient.ratio);
+	result = scale_color(scene->ambient.color, scene->ambient.ratio * KA);
 	i = -1;
-	while (++i < light_count)
+	while (++i < scene->ids[2] / 2 + scene->ids[3] / 2)
 	{
 		if (scene->lights[i].is_cap)
 			scene->lights[i].color = new_color(255);
 		light_dir = vec_normalized(vec_sub(scene->lights[i].pos, point));
 		if (is_shadowed(scene, point, scene->lights[i]))
 			continue ;
-		ndotl = fmax(0.0, vec_dot(normal, light_dir));
-		result = add_color(result, scale_color(
-			mult_color(closest.shape.color, scene->lights[i].color),
-			scene->lights[i].ratio * ndotl));
-		result = add_color(result, scale_color(scene->lights[i].color, scene->lights[i].ratio * pow(fmax(vec_dot(normal, vec_normalized(vec_add(light_dir, vec_normalized(vec_scale(ray.dir, -1.0))))), 0.0), 32) * 0.5));
+		result = add_color(result, scale_color(mult_color(closest.shape.color,
+						scene->lights[i].color), scene->lights[i].ratio
+					* fmax(0.0, vec_dot(normal, light_dir)) * KD));
+		result = add_color(result, scale_color(scene->lights[i].color,
+					scene->lights[i].ratio * KS * pow(fmax(vec_dot(vec_normalized(
+									vec_scale(ray.dir, -1.0)), vec_sub(vec_scale
+									(normal, 2.0 * vec_dot(normal, light_dir)),
+									light_dir)), 0.0), SHINE)));
 	}
 	return (result);
 }

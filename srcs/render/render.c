@@ -6,7 +6,7 @@
 /*   By: yzeybek <yzeybek@student.42istanbul.com.tr>   +#+  +:+       +#+     */
 /*                                                   +#+#+#+#+#+   +#+        */
 /*   Created: 2025/10/28 15:34:27 by yzeybek              #+#    #+#          */
-/*   Updated: 2025/11/13 00:27:07 by yzeybek             ###   ########.fr    */
+/*   Updated: 2026/01/08 17:18:41 by yzeybek             ###   ########.fr    */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,10 @@ static void	calc_cam_basis(t_scene *scene)
 	world_up = vec_new(0, 1, 0);
 	if (fabs(vec_dot(scene->camera.dir, world_up)) > 1.0 - EPSILON)
 		world_up = vec_new(0, 0, 1);
-	scene->camera.right = vec_normalized(vec_cross(scene->camera.dir,
-				world_up));
-	scene->camera.up = vec_normalized(vec_cross(scene->camera.right,
+	scene->camera.right = vec_normalized(vec_cross(world_up,
 				scene->camera.dir));
+	scene->camera.up = vec_normalized(vec_cross(scene->camera.dir,
+				scene->camera.right));
 	aspect = (double)VIEW_WIDTH / (double)VIEW_HEIGHT;
 	scene->camera.half_w = tan((scene->camera.fov * M_PI / 180.0) / 2.0);
 	scene->camera.half_h = scene->camera.half_w / aspect;
