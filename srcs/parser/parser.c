@@ -6,7 +6,7 @@
 /*   By: yzeybek <yzeybek@student.42istanbul.com.tr>   +#+  +:+       +#+     */
 /*                                                   +#+#+#+#+#+   +#+        */
 /*   Created: 2025/09/05 00:44:39 by yzeybek              #+#    #+#          */
-/*   Updated: 2025/11/12 23:16:08 by yzeybek             ###   ########.fr    */
+/*   Updated: 2026/01/12 00:01:33 by yzeybek             ###   ########.fr    */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	is_empty(char *content)
 		return (1);
 	while (*content)
 	{
-		if (!ft_isspace(*content))
+		if (!ft_isspace(*content) || *content == '#')
 			break ;
 		content++;
 	}
@@ -80,7 +80,7 @@ static int	parse_line(char *line, t_scene *scene)
 		scene->ids[6] += parse_cylinder(line + 2, scene, scene->ids + 4);
 	else if (*line == 'c' && *(line + 1) == 'n' && ft_isnone(*(line + 2)))
 		scene->ids[7] += parse_cone(line + 2, scene, scene->ids + 4);
-	else
+	else if (*line != '#')
 		return (put_err(ERR_PARSE_ID));
 	if (has_odd(scene->ids))
 		return (1);
