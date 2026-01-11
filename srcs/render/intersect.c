@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                           :::      ::::::: */
-/*   intersect.c                                           :+:      :+:    :+ */
-/*                                                       +:+ +:+         +:+  */
-/*   By: yzeybek <yzeybek@student.42istanbul.com.tr>   +#+  +:+       +#+     */
-/*                                                   +#+#+#+#+#+   +#+        */
-/*   Created: 2025/11/09 14:46:41 by yzeybek              #+#    #+#          */
-/*   Updated: 2025/11/15 15:31:03 by yzeybek             ###   ########.fr    */
+/*                                                        :::      ::::::::   */
+/*   intersect.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yzeybek <yzeybek@student.42.com.tr>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/09 14:46:41 by yzeybek           #+#    #+#             */
+/*   Updated: 2026/01/11 01:35:30 by yzeybek          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,6 @@ int	sphere_intersect(t_ray ray, t_shape shape, double *t)
 	else
 		return (0);
 	return (1);
-}
-
-int	cylinder_intersect(t_ray ray, t_shape shape, double *t)
-{
-	(void)ray;
-	(void)shape;
-	(void)t;
-	return (0);
 }
 
 int	cone_intersect(t_ray ray, t_shape shape, double *t)

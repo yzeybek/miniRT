@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                           :::      ::::::: */
-/*   mrt_render.h                                          :+:      :+:    :+ */
-/*                                                       +:+ +:+         +:+  */
-/*   By: yzeybek <yzeybek@student.42istanbul.com.tr>   +#+  +:+       +#+     */
-/*                                                   +#+#+#+#+#+   +#+        */
-/*   Created: 2025/11/04 12:57:10 by yzeybek              #+#    #+#          */
-/*   Updated: 2026/01/09 00:32:56 by yzeybek             ###   ########.fr    */
+/*                                                        :::      ::::::::   */
+/*   mrt_render.h                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yzeybek <yzeybek@student.42.com.tr>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/04 12:57:10 by yzeybek           #+#    #+#             */
+/*   Updated: 2026/01/11 01:00:15 by yzeybek          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,9 @@ int		plane_intersect(t_ray ray, t_shape shape, double *t);
 int		sphere_intersect(t_ray ray, t_shape shape, double *t);
 int		cylinder_intersect(t_ray ray, t_shape shape, double *t);
 int		cone_intersect(t_ray ray, t_shape shape, double *t);
+
+int			cap_intersect(t_ray ray, t_vector center, t_vector normal, double radius, double *t);
+t_vector	cylinder_normal(t_shape shape, t_vector point);
 
 t_color	miss_shader(void);
 t_color	hit_shader(t_scene *scene, t_ray ray, t_hit closest);

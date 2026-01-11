@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                           :::      ::::::: */
-/*   shader.c                                              :+:      :+:    :+ */
-/*                                                       +:+ +:+         +:+  */
-/*   By: yzeybek <yzeybek@student.42istanbul.com.tr>   +#+  +:+       +#+     */
-/*                                                   +#+#+#+#+#+   +#+        */
-/*   Created: 2025/11/09 14:50:52 by yzeybek              #+#    #+#          */
-/*   Updated: 2026/01/09 00:32:09 by yzeybek             ###   ########.fr    */
+/*                                                        :::      ::::::::   */
+/*   shader.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yzeybek <yzeybek@student.42.com.tr>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/09 14:50:52 by yzeybek           #+#    #+#             */
+/*   Updated: 2026/01/11 01:00:44 by yzeybek          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ static t_vector	get_normal(t_shape shape, t_vector point, t_ray ray)
 		n = vec_normalized(vec_sub(point, shape.pos));
 	else if (shape.obj_type == OBJ_PL)
 		n = shape.obj.pl->dir;
+	else if (shape.obj_type == OBJ_CY)
+		n = cylinder_normal(shape, point);
 	else
 		n = vec_new(0, 1, 0);
 	if (vec_dot(n, ray.dir) > 0)
