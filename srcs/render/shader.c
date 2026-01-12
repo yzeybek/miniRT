@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   shader.c                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yzeybek <yzeybek@student.42.com.tr>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/09 14:50:52 by yzeybek           #+#    #+#             */
-/*   Updated: 2026/01/11 01:00:44 by yzeybek          ###   ########.tr       */
+/*                                                           :::      ::::::: */
+/*   shader.c                                              :+:      :+:    :+ */
+/*                                                       +:+ +:+         +:+  */
+/*   By: yzeybek <yzeybek@student.42istanbul.com.tr>   +#+  +:+       +#+     */
+/*                                                   +#+#+#+#+#+   +#+        */
+/*   Created: 2025/11/09 14:50:52 by yzeybek              #+#    #+#          */
+/*   Updated: 2026/01/12 18:31:10 by yzeybek             ###   ########.fr    */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ t_color	hit_shader(t_scene *scene, t_ray ray, t_hit closest)
 	t_color			result;
 	int				i;
 
-	result = scale_color(scene->ambient.color, scene->ambient.ratio * KA);
+	result = scale_color(scene->ambient.color, scene->ambient.ratio);
 	i = -1;
 	while (++i < scene->ids[2] / 2 + scene->ids[3] / 2)
 	{
@@ -75,14 +75,13 @@ t_color	hit_shader(t_scene *scene, t_ray ray, t_hit closest)
 		light_dir = vec_normalized(vec_sub(scene->lights[i].pos, point));
 		if (is_shadowed(scene, point, scene->lights[i]))
 			continue ;
-		result = add_color(result, scale_color(mult_color(closest.shape.color,
-						scene->lights[i].color), scene->lights[i].ratio
-					* fmax(0.0, vec_dot(normal, light_dir)) * KD));
-		result = add_color(result, scale_color(scene->lights[i].color,
-					scene->lights[i].ratio * KS * pow(fmax(vec_dot(vec_normalized(
-									vec_scale(ray.dir, -1.0)), vec_sub(vec_scale
-									(normal, 2.0 * vec_dot(normal, light_dir)),
-									light_dir)), 0.0), SHINE)));
+		result = add_color(result, scale_color(mult_color(closest.shape.color, \
+scene->lights[i].color), scene->lights[i].ratio * fmax(0.0, vec_dot(normal, \
+light_dir)) * KD));
+		result = add_color(result, scale_color(scene->lights[i].color, scene->\
+lights[i].ratio * KS * pow(fmax(vec_dot(vec_normalized(vec_scale(ray.dir, -1.0))\
+, vec_sub(vec_scale(normal, 2.0 * vec_dot(normal, light_dir)), light_dir)), 0.0)\
+, SHINE)));
 	}
 	return (result);
 }

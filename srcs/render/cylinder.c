@@ -6,7 +6,7 @@
 /*   By: yzeybek <yzeybek@student.42istanbul.com.tr>   +#+  +:+       +#+     */
 /*                                                   +#+#+#+#+#+   +#+        */
 /*   Created: 2026/01/11 00:57:16 by yzeybek              #+#    #+#          */
-/*   Updated: 2026/01/12 07:18:32 by yzeybek             ###   ########.fr    */
+/*   Updated: 2026/01/12 18:24:39 by yzeybek             ###   ########.fr    */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,34 +15,32 @@
 
 t_vector	cylinder_normal(t_shape shape, t_vector point)
 {
-	t_vector	dir;
 	t_vector	base;
 	t_vector	cp;
 	double		proj;
 
-	dir = vec_normalized(shape.obj.cy->dir);
-	base = vec_sub(shape.pos, vec_scale(dir, shape.obj.cy->height * 0.5));
+	base = vec_sub(shape.pos, vec_scale(shape.obj.cy->dir, shape.obj.cy->height
+				* 0.5));
 	cp = vec_sub(point, base);
-	proj = vec_dot(cp, dir);
+	proj = vec_dot(cp, shape.obj.cy->dir);
 	if (proj < EPSILON)
-		return (vec_scale(dir, -1.0));
+		return (vec_scale(shape.obj.cy->dir, -1.0));
 	if (proj > shape.obj.cy->height - EPSILON)
-		return (dir);
-	return (vec_normalized(vec_sub(cp, vec_scale(dir, proj))));
+		return (shape.obj.cy->dir);
+	return (vec_normalized(vec_sub(cp, vec_scale(shape.obj.cy->dir, proj))));
 }
 
 static int	solve_quadratic(t_ray ray, t_shape shape, double *ts)
 {
-	t_vector	dir;
 	t_vector	base;
 	t_vector	ray_x_dir;
 	t_vector	oc_x_dir;
 	double		abc[3];
 
-	dir = vec_normalized(shape.obj.cy->dir);
-	base = vec_sub(shape.pos, vec_scale(dir, shape.obj.cy->height * 0.5));
-	ray_x_dir = vec_cross(ray.dir, dir);
-	oc_x_dir = vec_cross(vec_sub(ray.pos, base), dir);
+	base = vec_sub(shape.pos, vec_scale(shape.obj.cy->dir, shape.obj.cy->height
+				* 0.5));
+	ray_x_dir = vec_cross(ray.dir, shape.obj.cy->dir);
+	oc_x_dir = vec_cross(vec_sub(ray.pos, base), shape.obj.cy->dir);
 	abc[0] = vec_dot(ray_x_dir, ray_x_dir);
 	if (abc[0] < EPSILON)
 		return (0);
@@ -59,19 +57,18 @@ static int	solve_quadratic(t_ray ray, t_shape shape, double *ts)
 
 static int	body_intersect(t_ray ray, t_shape shape, double *t)
 {
-	t_vector	dir;
 	t_vector	base;
 	double		ts[2];
 	double		proj[2];
 
-	dir = vec_normalized(shape.obj.cy->dir);
-	base = vec_sub(shape.pos, vec_scale(dir, shape.obj.cy->height * 0.5));
+	base = vec_sub(shape.pos, vec_scale(shape.obj.cy->dir, shape.obj.cy->height
+				* 0.5));
 	if (!solve_quadratic(ray, shape, ts))
 		return (0);
 	proj[0] = vec_dot(vec_sub(vec_add(ray.pos, vec_scale(ray.dir, ts[0])),
-				base), dir);
+				base), shape.obj.cy->dir);
 	proj[1] = vec_dot(vec_sub(vec_add(ray.pos, vec_scale(ray.dir, ts[1])),
-				base), dir);
+				base), shape.obj.cy->dir);
 	if (ts[0] > EPSILON && proj[0] >= 0.0 && proj[0] <= shape.obj.cy->height)
 	{
 		*t = ts[0];
@@ -93,11 +90,11 @@ static int	cap_intersect(t_ray ray, t_shape shape, double *t, t_byte tb)
 	t_vector	ctr;
 	t_vector	htc;
 
-	nml = vec_scale(vec_normalized(shape.obj.cy->dir), -1);
+	nml = vec_scale(shape.obj.cy->dir, -1);
 	ctr = vec_sub(shape.pos, vec_scale(nml, shape.obj.cy->height * -0.5));
 	if (tb)
 	{
-		nml = vec_normalized(shape.obj.cy->dir);
+		nml = shape.obj.cy->dir;
 		ctr = vec_add(shape.pos, vec_scale(nml, shape.obj.cy->height * 0.5));
 	}
 	denom = vec_dot(ray.dir, nml);
