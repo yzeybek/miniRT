@@ -6,7 +6,7 @@
 /*   By: yzeybek <yzeybek@student.42istanbul.com.tr>   +#+  +:+       +#+     */
 /*                                                   +#+#+#+#+#+   +#+        */
 /*   Created: 2026/01/11 00:57:16 by yzeybek              #+#    #+#          */
-/*   Updated: 2026/01/12 01:24:37 by yzeybek             ###   ########.fr    */
+/*   Updated: 2026/01/12 07:18:32 by yzeybek             ###   ########.fr    */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,24 +35,25 @@ static int	solve_quadratic(t_ray ray, t_shape shape, double *ts)
 {
 	t_vector	dir;
 	t_vector	base;
-	t_vector	v;
-	t_vector	w;
-	double		c[3];
+	t_vector	ray_x_dir;
+	t_vector	oc_x_dir;
+	double		abc[3];
 
 	dir = vec_normalized(shape.obj.cy->dir);
 	base = vec_sub(shape.pos, vec_scale(dir, shape.obj.cy->height * 0.5));
-	v = vec_sub(ray.dir, vec_scale(dir, vec_dot(ray.dir, dir)));
-	c[0] = vec_dot(v, v);
-	if (fabs(c[0]) < EPSILON)
+	ray_x_dir = vec_cross(ray.dir, dir);
+	oc_x_dir = vec_cross(vec_sub(ray.pos, base), dir);
+	abc[0] = vec_dot(ray_x_dir, ray_x_dir);
+	if (abc[0] < EPSILON)
 		return (0);
-	w = vec_sub(vec_sub(ray.pos, base), vec_scale(dir,
-				vec_dot(vec_sub(ray.pos, base), dir)));
-	c[1] = 2.0 * vec_dot(v, w);
-	c[2] = vec_dot(w, w) - pow(shape.obj.cy->dia * 0.5, 2);
-	if (c[1] * c[1] - 4.0 * c[0] * c[2] < 0.0)
+	abc[1] = 2.0 * vec_dot(ray_x_dir, oc_x_dir);
+	abc[2] = vec_dot(oc_x_dir, oc_x_dir) - pow(shape.obj.cy->dia * 0.5, 2);
+	if (abc[1] * abc[1] - 4.0 * abc[0] * abc[2] < 0.0)
 		return (0);
-	ts[0] = (-c[1] - sqrt(c[1] * c[1] - 4.0 * c[0] * c[2])) / (2.0 * c[0]);
-	ts[1] = (-c[1] + sqrt(c[1] * c[1] - 4.0 * c[0] * c[2])) / (2.0 * c[0]);
+	ts[0] = (-abc[1] - sqrt(abc[1] * abc[1] - 4.0 * abc[0] * abc[2]))
+		/ (2.0 * abc[0]);
+	ts[1] = (-abc[1] + sqrt(abc[1] * abc[1] - 4.0 * abc[0] * abc[2]))
+		/ (2.0 * abc[0]);
 	return (1);
 }
 
