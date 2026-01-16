@@ -90,7 +90,7 @@ debug: CFLAGS += -g -DDEBUG=1
 debug: re
 
 norm:
-	norminette
+	norminette --use-gitignore
 
 leak:
 	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --track-fds=yes ./$(NAME) $(TEST_ARG)
