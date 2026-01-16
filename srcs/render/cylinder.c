@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                           :::      ::::::: */
-/*   cylinder.c                                            :+:      :+:    :+ */
-/*                                                       +:+ +:+         +:+  */
-/*   By: yzeybek <yzeybek@student.42istanbul.com.tr>   +#+  +:+       +#+     */
-/*                                                   +#+#+#+#+#+   +#+        */
-/*   Created: 2026/01/11 00:57:16 by yzeybek              #+#    #+#          */
-/*   Updated: 2026/01/12 18:24:39 by yzeybek             ###   ########.fr    */
+/*                                                        :::      ::::::::   */
+/*   cylinder.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yzeybek <yzeybek@student.42.com.tr>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/11 00:57:16 by yzeybek           #+#    #+#             */
+/*   Updated: 2026/01/16 17:59:53 by yzeybek          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ int	cylinder_intersect(t_ray ray, t_shape shape, double *t)
 {
 	double		tmp_t;
 	double		closest;
-	int			hit;
+	t_byte		hit;
 
 	hit = 0;
 	closest = INFINITY;

@@ -6,7 +6,7 @@
 /*   By: yzeybek <yzeybek@student.42.com.tr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 14:46:41 by yzeybek           #+#    #+#             */
-/*   Updated: 2026/01/11 01:35:30 by yzeybek          ###   ########.tr       */
+/*   Updated: 2026/01/16 16:21:37 by yzeybek          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,4 @@ int	sphere_intersect(t_ray ray, t_shape shape, double *t)
 	else
 		return (0);
 	return (1);
-}
-
-int	cone_intersect(t_ray ray, t_shape shape, double *t)
-{
-	(void)ray;
-	(void)shape;
-	(void)t;
-	return (0);
 }
