@@ -1,6 +1,6 @@
 NAME = miniRT
 
-TEST_ARG = ./scenes/subject.rt
+TEST_ARG = ./scenes/temple.rt
 
 CC = cc
 RM = rm -rf
@@ -39,7 +39,7 @@ LIBMLX_DIR = ./libs/minilibx-linux
 LIBMLX = $(LIBMLX_DIR)/libmlx_Linux.a
 
 SRCS_DIR = srcs
-SRCS = main.c error.c view.c parser.c parse_utils.c parse_elem.c parse_objs.c render.c color.c intersect.c shader.c print.c cylinder.c
+SRCS = main.c error.c view.c parser.c parse_utils.c parse_elem.c parse_objs.c render.c color.c intersect.c shader.c print.c cylinder.c cone.c
 
 VPATH = $(SRCS_DIR) $(addprefix $(SRCS_DIR)/, parser parser/parse_funcs render)
 
@@ -63,15 +63,17 @@ libs:
 	@$(MAKE) $(LIBVEC_DIR) CFLAGS="$(CFLAGS)"
 	@if [ ! -d $(LIBMLX_DIR) ]; then \
 		$(GIT) $(LIBMLX_REPO) $(LIBMLX_DIR); \
-	fi; \
-	$(MAKE) $(LIBMLX_DIR)
+	fi;
+	@$(MAKE) $(LIBMLX_DIR)
 
 clean:
 	$(RM) $(OBJS_DIR)
 	@$(MAKE) $(LIBVEC_DIR) clean
 	@$(MAKE) $(LIBFT_DIR) clean
 	@$(MAKE) $(LIBGNL_DIR) clean
-	@$(MAKE) $(LIBMLX_DIR) clean
+	@if [ ! -d $(LIBMLX_DIR) ]; then \
+		$(MAKE) $(LIBMLX_DIR) clean; \
+	fi;
 	@$(MAKE) $(LIBMEM_DIR) clean
 
 fclean: clean

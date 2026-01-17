@@ -10,7 +10,10 @@
 
 6. [Books that highly recommended.](https://raytracing.github.io/)
 
-7. [Worth to read for better understanment](https://en.m.wikipedia.org/wiki/Phong_reflection_model)
+7. [Worth to read for better understanment.](https://en.m.wikipedia.org/wiki/Phong_reflection_model)
 
-8. [Nice coding introduction to phong lighting](https://www.youtube.com/watch?v=LKXAIuCaKAQ)
+8. [Nice coding introduction to phong lighting.](https://www.youtube.com/watch?v=LKXAIuCaKAQ)
 
+9. [Almost offical document for geometrical rendering.](https://www.geometrictools.com/Documentation/Documentation.html)
+
+10. [The guy that makes ShaderToy and stuff.](https://iquilezles.org/)

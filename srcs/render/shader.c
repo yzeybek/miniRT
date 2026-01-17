@@ -6,7 +6,7 @@
 /*   By: yzeybek <yzeybek@student.42istanbul.com.tr>   +#+  +:+       +#+     */
 /*                                                   +#+#+#+#+#+   +#+        */
 /*   Created: 2025/11/09 14:50:52 by yzeybek              #+#    #+#          */
-/*   Updated: 2026/01/12 18:31:10 by yzeybek             ###   ########.fr    */
+/*   Updated: 2026/01/17 01:08:15 by yzeybek             ###   ########.tr    */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ static t_vector	get_normal(t_shape shape, t_vector point, t_ray ray)
 		n = shape.obj.pl->dir;
 	else if (shape.obj_type == OBJ_CY)
 		n = cylinder_normal(shape, point);
+	else if (shape.obj_type == OBJ_CN)
+		n = cone_normal(shape, point);
 	else
 		n = vec_new(0, 1, 0);
 	if (vec_dot(n, ray.dir) > 0)

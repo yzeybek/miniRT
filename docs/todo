@@ -18,7 +18,7 @@
  - [x] fix wrong coloring on hit shader
  - [x] understand the lighting operations
  - [x] add cylinder
- - [ ] add cone
+ - [x] add cone
  - [ ] light_count and shape_count ids
  - [ ] complete shapes printing on DEBUG
  - [ ] test the libmem with new mem_free

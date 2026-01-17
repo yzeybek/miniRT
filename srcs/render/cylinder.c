@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   cylinder.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yzeybek <yzeybek@student.42.com.tr>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/11 00:57:16 by yzeybek           #+#    #+#             */
-/*   Updated: 2026/01/16 17:59:53 by yzeybek          ###   ########.tr       */
+/*                                                           :::      ::::::: */
+/*   cylinder.c                                            :+:      :+:    :+ */
+/*                                                       +:+ +:+         +:+  */
+/*   By: yzeybek <yzeybek@student.42istanbul.com.tr>   +#+  +:+       +#+     */
+/*                                                   +#+#+#+#+#+   +#+        */
+/*   Created: 2026/01/11 00:57:16 by yzeybek              #+#    #+#          */
+/*   Updated: 2026/01/17 15:26:46 by yzeybek             ###   ########.tr    */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,12 @@ t_vector	cylinder_normal(t_shape shape, t_vector point)
 
 static int	solve_quadratic(t_ray ray, t_shape shape, double *ts)
 {
-	t_vector	base;
-	t_vector	ray_x_dir;
-	t_vector	oc_x_dir;
-	double		abc[3];
+	const t_vector	base = vec_sub(shape.pos, vec_scale(shape.obj.cy->dir,
+				shape.obj.cy->height * 0.5));
+	const t_vector	ray_x_dir = vec_cross(ray.dir, shape.obj.cy->dir);
+	t_vector		oc_x_dir;
+	double			abc[3];
 
-	base = vec_sub(shape.pos, vec_scale(shape.obj.cy->dir, shape.obj.cy->height
-				* 0.5));
-	ray_x_dir = vec_cross(ray.dir, shape.obj.cy->dir);
 	oc_x_dir = vec_cross(vec_sub(ray.pos, base), shape.obj.cy->dir);
 	abc[0] = vec_dot(ray_x_dir, ray_x_dir);
 	if (abc[0] < EPSILON)
