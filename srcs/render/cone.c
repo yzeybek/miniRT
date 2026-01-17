@@ -6,7 +6,7 @@
 /*   By: yzeybek <yzeybek@student.42istanbul.com.tr>   +#+  +:+       +#+     */
 /*                                                   +#+#+#+#+#+   +#+        */
 /*   Created: 2026/01/16 21:30:34 by yzeybek              #+#    #+#          */
-/*   Updated: 2026/01/17 15:31:07 by yzeybek             ###   ########.tr    */
+/*   Updated: 2026/01/17 16:13:44 by yzeybek             ###   ########.tr    */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ t_vector	cone_normal(t_shape shape, t_vector point)
 static int	solve_quadratic(t_ray ray, t_shape shape, double *ts)
 {
 	const t_vector	co = vec_sub(ray.pos, shape.pos);
-	const double	k_2 = pow(shape.obj.cn->dia * 0.5, 2) /
-			pow(shape.obj.cn->height, 2);
+	const double	k_2 = pow(shape.obj.cn->dia * 0.5, 2)
+		/ pow(shape.obj.cn->height, 2);
 	double			abc[3];
 
 	abc[0] = vec_dot(ray.dir, ray.dir) - (1.0 + k_2)

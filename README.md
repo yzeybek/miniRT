@@ -1,26 +1,32 @@
-*This project has been created as part of the 42 curriculum by yzeybek, ibayandu.*
+_This project has been created as part of the 42 curriculum by yzeybek, ibayandu._
 
 # miniRT
 
 ## Description
 
-### Project Goal
+### Project Goal 🎯
 
-### Project Overview
+The goal of this project is building a minimal version of ray tracing engine. This engine, allows to rendering realistic computer-generated images from a simply formatted file. Also dealing with computer graphics world, develops learner in mathematical face of coding. Along with the already known concepts like; parsing, high scale project developing and necessary limitation chooses, project introduce; ray tracing pipeline, illumination types and geometry based rendering.
+
+
+
+### Project Overview 🔍
+
+
 
 ## Instructions
 
-### Installation
+### Installation ⬇️
 
-### Compilation
+### Compilation 🧑‍💻
 
-### Execution
+### Execution ⚙️
 
 ## Resources
 
-### Usage Of Sources
+### Usage Of Sources 📋
 
-1. [If need to start from scratch. (other episodes an be watchable if more needed)](https://youtu.be/fNk_zzaMoSs?feature=shared)
+1. [If need to start from scratch. (other episodes watchable if more needed)](https://youtu.be/fNk_zzaMoSs?feature=shared)
 
 2. [Mathematical Background of RT.](http://www.youtube.com/playlist?list=PLAqGIYgEAxrUO6ODA0pnLkM2UOijerFPv)
 
@@ -40,6 +46,6 @@
 
 10. [The guy that makes ShaderToy and stuff.](https://iquilezles.org/)
 
-### Usage Of AI's
+### Usage Of AI's 🤖
 
 

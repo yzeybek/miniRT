@@ -6,7 +6,7 @@
 /*   By: yzeybek <yzeybek@student.42istanbul.com.tr>   +#+  +:+       +#+     */
 /*                                                   +#+#+#+#+#+   +#+        */
 /*   Created: 2025/09/01 18:17:32 by yzeybek              #+#    #+#          */
-/*   Updated: 2025/10/21 12:52:23 by yzeybek             ###   ########.fr    */
+/*   Updated: 2026/01/17 16:26:21 by yzeybek             ###   ########.tr    */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,32 +19,32 @@ void	*mem_absorb(void *ptr)
 	return (ptr);
 }
 
+static void	mem_free_node(t_mem_block *node, t_mem_block *prev, t_mem_block **h)
+{
+	if (!prev)
+		*h = node->next;
+	else
+		prev->next = node->next;
+	free(node->data);
+	free(node);
+}
+
 void	mem_free(void *ptr)
 {
 	t_mem_block	**head;
 	t_mem_block	*node;
-	t_mem_block	*temp;
+	t_mem_block	*prev;
 
 	head = mem_add_new_block(NULL, 0)->head;
-	if (head && *head && (*head)->data == ptr)
-	{
-		node = (*head)->next;
-		free((*head)->data);
-		free(*head);
-		head = &node;
+	if (!head || !*head)
 		return ;
-	}
-	node = (*head);
-	while (node && node->next)
+	node = *head;
+	prev = NULL;
+	while (node)
 	{
-		if (node->next->data == ptr)
-		{
-			temp = node->next->next;
-			free(node->next->data);
-			free(node->next);
-			node->next = temp;
-			break ;
-		}
+		if (node->data == ptr)
+			return (mem_free_node(node, prev, head));
+		prev = node;
 		node = node->next;
 	}
 }
