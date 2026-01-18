@@ -172,4 +172,5 @@ We carried about avoiding usage of vibe coding tools on creation process of this
 - Understanding complex math implementations
 - Planning our pipeline or project structure
 - Resource finding as quick search of internet.
->End of the day we are all using AI's everywhere in our life, why to disturb our little world in here with these tools... Why to not make ourselfs one these?
+
+End of the day, we were carreful about using AI as a tool instead of letting it to do the all job of us. Which is prevents to AI, use we as a tool for developing this project :)
